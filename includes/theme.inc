@@ -1248,6 +1248,7 @@ function path_to_theme() {
 function drupal_find_theme_functions($cache, $prefixes) {
   $implementations = array();
   $functions = get_defined_functions();
+  $theme_functions = preg_grep('/^(' . implode(')|(', $prefixes) . ')_/', $functions['user']);
 
   foreach ($cache as $hook => $info) {
     foreach ($prefixes as $prefix) {
@@ -1264,7 +1265,7 @@ function drupal_find_theme_functions($cache, $prefixes) {
       // intermediary suggestion.
       $pattern = isset($info['pattern']) ? $info['pattern'] : ($hook . '__');
       if (!isset($info['base hook']) && !empty($pattern)) {
-        $matches = preg_grep('/^' . $prefix . '_' . $pattern . '/', $functions['user']);
+        $matches = preg_grep('/^' . $prefix . '_' . $pattern . '/', $theme_functions);
         if ($matches) {
           foreach ($matches as $match) {
             $new_hook = substr($match, strlen($prefix) + 1);
@@ -2596,10 +2597,9 @@ function template_preprocess_html(&$variables) {
   }
 
   // Construct page title.
-  $title = drupal_get_title();
-  if (strlen(trim($title))) {
+  if (drupal_get_title()) {
     $head_title = array(
-      'title' => strip_tags($title),
+      'title' => strip_tags(drupal_get_title()),
       'name' => check_plain(variable_get('site_name', 'Drupal')),
     );
   }
@@ -2639,7 +2639,7 @@ function template_preprocess_page(&$variables) {
   // Move some variables to the top level for themer convenience and template cleanliness.
   $variables['show_messages'] = $variables['page']['#show_messages'];
 
-  foreach (system_region_list($GLOBALS['theme']) as $region_key => $region_name) {
+  foreach (system_region_list($GLOBALS['theme'], REGIONS_ALL, FALSE) as $region_key) {
     if (!isset($variables['page'][$region_key])) {
       $variables['page'][$region_key] = array();
     }
@@ -2698,8 +2698,7 @@ function template_process_page(&$variables) {
     $variables['breadcrumb'] = theme('breadcrumb', array('breadcrumb' => drupal_get_breadcrumb()));
   }
   if (!isset($variables['title'])) {
-    $title = drupal_get_title();
-    $variables['title'] = strlen(trim($title)) ? $title : NULL;
+    $variables['title'] = drupal_get_title();
   }
 
   // Generate messages last in order to capture as many as possible for the
