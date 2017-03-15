@@ -1,0 +1,538 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function quickbar_init() {
+  // Make sure quickbar should be used.
+  if (quickbar_is_enabled()) {
+    // Declare initial variables.
+    global $user;
+
+    // Get the user roles
+    $roles = user_roles();
+
+    // Get some variables we might use
+    $use_machine_names = variable_get('quickbar_use_machine_names', 0);
+    if ($use_machine_names) {
+      $machine_roles = _quickbar_role_machine_names($roles);
+    }
+
+    $role_weights = variable_get('quickbar_role_weights', '');
+    $menus = variable_get('quickbar_role_menus', array());
+
+    // Loop through the roles looking for a role that matches the current users
+    // role and also has a menu associated with it.
+    if (is_array($role_weights)) {
+      foreach($role_weights as $rid => $weight) {
+        $user_role_index = ($use_machine_names) ? array_search($machine_roles[$rid], $roles) : $rid;
+
+        if (!empty($user->roles[$user_role_index]) && !empty($menus[$rid])) {
+          $path = drupal_get_path('module', 'quickbar');
+          drupal_add_js($path . '/js/quickbar.js');
+          drupal_add_css($path . '/theme/quickbar.css');
+
+          $settings = variable_get('quickbar_settings_' . $rid, _quickbar_default_settings());
+          drupal_add_js(array('quickbar' => array('secondary_menu_visibility' => $settings['secondary_menu_visibility'])), 'setting');
+
+          // Add the iconset if one was selected
+          if ($settings['iconset'] != '_none') {
+            $iconsets = module_invoke_all('quickbar_iconset_info');
+            drupal_add_css($iconsets[$settings['iconset']]['css']);
+          }
+          break;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Quickbar default settings.
+ */
+function _quickbar_default_settings() {
+  return array(
+    'iconset' => '_none',
+    'sticky' => 0,
+    'float' => 0,
+    'secondary_menu_visibility' => 0,
+    'nofollow' => 0,
+    'expanded_items' => array(
+      'expand_node_add' => 0,
+      'expand_structure_menu' => 0,
+    ),
+  );
+}
+
+/**
+ * Menu access callback for admin landing pages.
+ */
+function quickbar_landing_page_access($path) {
+  static $paths;
+  if (!isset($paths)) {
+    $cache = cache_get('quickbar_paths');
+    $paths = ($cache && !empty($cache->data)) ? $cache->data : array();
+  }
+  if (!isset($paths[$path])) {
+    $item = db_fetch_array(db_query("SELECT mlid, menu_name FROM {menu_links} ml WHERE ml.link_path = '%s' AND module = 'system'", $path));
+    $result = db_query("
+      SELECT m.load_functions, m.to_arg_functions, m.access_callback, m.access_arguments, m.page_callback, m.page_arguments, m.title, m.title_callback, m.title_arguments, m.type, m.description, ml.*
+      FROM {menu_links} ml
+      LEFT JOIN {menu_router} m ON ml.router_path = m.path
+      WHERE ml.plid = %d AND ml.menu_name = '%s' AND hidden = 0", $item['mlid'], $item['menu_name']);
+    $paths[$path] = FALSE;
+    while ($item = db_fetch_array($result)) {
+      $item['options'] = unserialize($item['options']);
+      if ($item['external']) {
+        if (!empty($item['options']['alter'])) {
+          drupal_alter('translated_menu_link', $item, $map);
+        }
+        if ($item['access']) {
+          $paths[$path] = TRUE;
+          break;
+        }
+      }
+      else {
+        $map = explode('/', $item['link_path']);
+        _menu_link_map_translate($map, $item['to_arg_functions']);
+        $item['href'] = implode('/', $map);
+        if (strpos($item['href'], '%') !== FALSE) {
+          continue;
+        }
+        if (!isset($item['access'])) {
+          if (!_menu_load_objects($item, $map)) {
+            continue;
+          }
+          _menu_check_access($item, $map);
+        }
+        if (!$item['access']) {
+          continue;
+        }
+        $paths[$path] = TRUE;
+        break;
+      }
+    }
+    cache_set('quickbar_paths', $paths);
+  }
+  return $paths[$path];
+}
+
+/**
+ * Implements hook_permission().
+ */
+function quickbar_permission() {
+  return array(
+    'administer quickbar' => array(
+      'title' => t('Administer Quickbar'),
+      'description' => t('Administer Quickbar settings and configurations'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function quickbar_theme($existing, $type, $theme, $path) {
+  $path = drupal_get_path('module', 'quickbar');
+  $items['quickbar'] = array(
+    'variables' => array('tree' => array(), 'rid' => NULL),
+    'template' => 'quickbar',
+    'path' => $path . '/theme',
+    'file' => 'theme.inc',
+  );
+
+  $items['quickbar_form'] = array(
+    'render element' => 'form',
+    'file' => 'quickbar.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function quickbar_menu() {
+  return array(
+    'admin/config/user-interface/quickbar' => array(
+      'title' => t('Quickbar Configuration'),
+      'description' => t('Configure toolbars'),
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('quickbar_form'),
+      'access callback' => 'user_access',
+      'access arguments' => array('administer quickbar'),
+      'type' => MENU_NORMAL_ITEM,
+      'file' => 'quickbar.admin.inc',
+    ),
+    'admin/config/user-interface/quickbar/%/edit' => array(
+      'title' => t('Configure Toolbar'),
+      'description' => t('Configure the toolbar for a certain role.'),
+      'page callback' => '_quickbar_configure_page',
+      'page arguments' => array(4),
+      'access callback' => 'user_access',
+      'access arguments' => array('administer quickbar'),
+      'type' => MENU_NORMAL_ITEM,
+      'file' => 'quickbar.admin.inc',
+    ),
+  );
+}
+
+/**
+ * Wrapper to check whether various quickbar features are accessible to the
+ * current user and compatible with the current theme.
+ */
+function quickbar_is_enabled() {
+  global $user;
+  // If admin_select module exists respect it's settings to determine if the
+  // toolbar is shown.
+  if (module_exists('admin_select') && !empty($user->data['admin_select']) && $user->data['admin_select'] !== 'quickbar') {
+    // anonymous user / drush doesn't have a data array
+    return FALSE;
+  }
+
+  global $theme_info;
+  // If the theme does not specify some flag for this feature, assume
+  // it is compatible.
+  if (!isset($theme_info->info['quickbar']) || $theme_info->info['quickbar']) {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Implements hook_page_build()
+ */
+function quickbar_page_build(&$page) {
+  $links = '';
+  if ($return = quickbar_available()) {
+    // Obtain links for the menu items and theme them.
+    $links = quickbar_menu_tree($return);
+    $page['page_top']['quickbar'] = array(
+      '#type' => 'markup',
+      '#markup' => theme('quickbar', array('tree' => $links, 'rid' => $return['rid'])),
+    );
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function quickbar_preprocess_html(&$vars) {
+  if ($return = quickbar_available()) {
+    $vars['classes_array'][] = 'quickbar-enabled';
+    // If the toolbar should be sticky add a sticky class to the body.
+    $settings = variable_get('quickbar_settings_' . $return['rid'], array());
+    if (!empty($settings['sticky'])) {
+      $vars['classes_array'][] = 'quickbar-sticky';
+    }
+    // We only want to check for 'float' if 'sticky' is not enabled.
+    elseif (!empty($settings['float'])) {
+      $vars['classes_array'][] = 'quickbar-float';
+    }
+  }
+}
+
+/**
+ * Helper for returning a selectively flattened version of the menu.
+ */
+function quickbar_get_menu_tree($menu) {
+  $tree = menu_tree_all_data($menu);
+  foreach ($tree as $k => $item) {
+    if ($item['link']['link_path'] == 'admin' && !empty($item['below'])) {
+      unset($tree[$k]);
+      $tree = array_merge($tree, $item['below']);
+    }
+  }
+  return $tree;
+}
+
+/**
+ * Helper for returning whether a quickbar toolbar should be displayed based on uid and settings.
+ */
+function quickbar_available() {
+  if (quickbar_is_enabled()) {
+    // Declare initial variables.
+    global $user;
+
+    // Need a serialized array for default value.
+    $role_weights = variable_get('quickbar_role_weights', array());
+
+    if (is_array($role_weights)) {
+      // Sort roles
+      asort($role_weights);
+
+      // Set some variables we might need.
+      $roles = user_roles();
+      $use_machine_names = variable_get('quickbar_use_machine_names', 0);
+      if ($use_machine_names) {
+        $machine_roles = _quickbar_role_machine_names($roles);
+      }
+
+      // Loop through the roles looking for a role that matches the current users
+      // role and also has a menu associated with it.
+      $menus = variable_get('quickbar_role_menus', array());
+      foreach($role_weights as $rid => $weight) {
+        if (isset($menus[$rid])) {
+          $menu = $menus[$rid];
+          $user_role_index = ($use_machine_names) ? array_search($machine_roles[$rid], $roles) : $rid;
+
+          if (!empty($user->roles[$user_role_index]) && $menu) {
+            $settings = variable_get('quickbar_settings_' . $rid, array());
+            return array('rid' => $rid, 'menu' => $menu, 'settings' => $settings);
+          }
+        }
+      }
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Retrieve a hierarchy of links representing select portions of the menu.
+ */
+function quickbar_menu_tree($settings) {
+  $links = array();
+  // Retrieve the menu from the database.
+  $tree = quickbar_get_menu_tree($settings['menu']);
+  // Convert the tree to menu links
+  quickbar_menu_tree_links($tree, $links);
+  // Add any expanded item links
+  _quickbar_expanded_item_links($links, $settings);
+  // Allow the menu links to be altered
+  drupal_alter('quickbar_menu_links', $links);
+  return $links;
+}
+
+/**
+ * Add expanded item links
+ */
+function _quickbar_expanded_item_links(&$links, $settings) {
+  // Loop thru each link section
+  foreach ($links[0] as $section_name => $link_section) {
+    // and then loop thru each item in the section
+    foreach($link_section as $item_machine_name => $item) {
+      // check if the item has a href of one of the supported expanded items
+      switch ($item['href']) {
+        case 'node/add':
+          // check if the quickbar config settings are set to have 'node/add' expanded
+          if (!empty($settings['settings']['expanded_items']['expand_node_add'])) {
+            // get the menu links for 'node/add'
+            $result = db_query("SELECT DISTINCT link_path, link_title FROM {menu_links} WHERE link_path like 'node/add/%'" .
+                             " AND module = 'system' ORDER BY link_title ASC");
+            foreach($result as $link) {
+              // add each link as an item to the second level ($links[1]) menu
+              $parent_path = 'node/add';
+              // but only add if the user has access
+              if (drupal_valid_path($link->link_path)) {
+                $links[1][$parent_path][$link->link_title] = array(
+                  'title' => $link->link_title,
+                  'href' => $link->link_path,
+                  'attributes' => array(
+                    'classes' => array(
+                      drupal_html_class($link->link_title),
+                    ),
+                  ),
+                );
+              }
+            }
+
+            if (!empty($links[1][$parent_path])) {
+              $links[0][$section_name][$item_machine_name]['attributes']['classes'][] = 'primary-nofollow';
+            }
+          }
+          break;
+
+        case 'admin/structure/menu':
+          // check if the quickbar config settings are set to have 'admin/structure/menu' expanded
+          if (!empty($settings['settings']['expanded_items']['expand_structure_menu'])) {
+            $result = db_query( "SELECT * FROM {menu_custom} ORDER BY title");
+            foreach($result as $link) {
+              // add each link as an item to the second level ($links[1]) menu
+              $link_path = 'admin/structure/menu/manage/' . $link->menu_name;
+              $parent_path = 'admin/structure/menu';
+              // but only add if the user has access
+              if (drupal_valid_path($link_path)) {
+                $links[1][$parent_path][$link->title] = array(
+                  'title' => $link->title,
+                  'href' => $link_path,
+                  'attributes' => array(
+                    'classes' => array(
+                      drupal_html_class($link->title),
+                    ),
+                  ),
+                );
+              }
+            }
+          }
+          break;
+      }
+    }
+  }
+}
+
+/**
+ * Generate a links array from a menu tree array.
+ */
+function quickbar_menu_navigation_links($tree, $admin_only = FALSE) {
+  $links = array();
+  foreach ($tree as $item) {
+    if (!$item['link']['hidden']) {
+      $class = '';
+      $id = _quickbar_path_to_attribute($item['link']['href']);
+
+      $l = $item['link']['localized_options'];
+      $l['href'] = $item['link']['href'];
+      $l['title'] = "<span class='icon'></span>". $item['link']['title'];
+      $l['attributes'] = array('id' => 'quickbar-link-'. $id);
+      $l['html'] = TRUE;
+
+      // If menu item container module is enabled don't go to any url when
+      // clicked.
+      if (module_exists('menu_item_container')) {
+        global $base_url;
+        if (strpos($l['href'], 'menu-item-container') !== FALSE) {
+          $l['href'] = $base_url . '/' . drupal_get_path_alias(str_replace('%2F', '/', current_path())) . '#';
+          if (drupal_is_front_page()) {
+            $l['href'] = $base_url . '#';
+          }
+        }
+      }
+
+      $class = ' path-'. $id;
+      if (quickbar_in_active_trail($item['link']['href'])) {
+        $class .= ' active-trail';
+      }
+      // Keyed with the unique mlid to generate classes in theme_links().
+      $links['menu-'. $item['link']['mlid'] . $class] = $l;
+    }
+  }
+  return $links;
+}
+
+/**
+ * Build a hierarchy of $links arrays suitable for theme_links() from a
+ * menu tree.
+ */
+function quickbar_menu_tree_links($tree, &$links, $parent = 'admin', $depth = 0) {
+  // Create a single level of links.
+  $links[$depth][$parent] = array();
+  $l = quickbar_menu_navigation_links($tree, TRUE);
+  if (!empty($l)) {
+    $links[$depth][$parent] = $l;
+  }
+
+  // Recurse
+  foreach ($tree as $item) {
+    if (!$item['link']['hidden']) {
+      if (!empty($item['below'])) {
+        quickbar_menu_tree_links($item['below'], $links, $item['link']['href'], $depth + 1);
+      }
+    }
+  }
+}
+
+/**
+ * Checks whether an item is in the active trail. Useful when using
+ * a menu generated by menu_tree_all_data() which does not set the
+ * 'in_active_trail' flag on items.
+ */
+function quickbar_in_active_trail($path, $reset = FALSE) {
+  // Gather active paths
+  static $active_paths;
+  if (!isset($active_paths) || $reset) {
+    $active_paths = array();
+    $trail = menu_get_active_trail();
+    foreach ($trail as $item) {
+      if (!empty($item['href'])) {
+        $active_paths[] = $item['href'];
+      }
+    }
+  }
+  return in_array($path, $active_paths);
+}
+
+/**
+ * Implements hook_quickbar_iconset_info();
+ */
+function quickbar_quickbar_iconset_info() {
+  // Set default iconset.
+  $iconsets = array(
+    'quickbar' => array(
+      'title' => 'Admin 1.x',
+      'css' => drupal_get_path('module', 'quickbar') . '/theme/icons.css',
+    ),
+  );
+
+  // Get a list of themes so we can provide known iconsets.
+  $themes = list_themes();
+
+  if (array_key_exists('rubik', $themes)) {
+    $iconsets['quickbar_rubik'] = array(
+      'title' => 'Rubik',
+      'css' => drupal_get_path('theme', 'rubik') . '/icons.css',
+    );
+  }
+
+  return $iconsets;
+}
+
+/**
+* Implements hook_admin_select_info().
+*
+* @return
+*   An associative array of Administration Menu modules provided by this
+*   module, keyed by tag name with the following properties:
+*   - title: The human readable name of the module.
+*   - access arguments: An array of arguments for user_access().
+*   - suppress callback: The modules suppress function.
+*   - file: (optional) The include file where the callback function resides.
+*/
+function quickbar_admin_select_info() {
+  $info = array();
+
+  $info['quickbar'] = array(
+    'title' => t('Quickbar'),
+    'access arguments' => array('access content'),
+    'suppress callback' => 'quickbar_suppress',
+  );
+
+  return $info;
+}
+
+/**
+ * Hide the quickbar.
+ */
+function quickbar_suppress() {
+  // We keep this here for admin_select although it doesn't work at the moment.
+  global $theme_info;
+  $theme_info->info['quickbar'] = FALSE;
+}
+
+/**
+ * Convert role names into machine names.
+ */
+function _quickbar_role_machine_names($roles) {
+  $new_roles = array();
+  foreach($roles as $name) {
+    $machine_name = strtolower($name);
+    $machine_name = str_replace(' ', '-', $machine_name);
+    $new_roles[$machine_name] = $name;
+  }
+
+  return $new_roles;
+}
+
+/**
+ * Convert path to valid attribute.
+ */
+function _quickbar_path_to_attribute($path) {
+  $attribute = str_replace('<front>', 'front', $path);
+  $attribute = preg_replace('#^https?://#', '', $attribute);
+  $replacements = array('%', '<', '>', '#', '/');
+  foreach ($replacements as $token) {
+    $attribute = str_replace($token, '-', $attribute);
+  }
+
+  return $attribute;
+}
