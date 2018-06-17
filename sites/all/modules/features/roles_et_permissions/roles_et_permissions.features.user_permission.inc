@@ -212,6 +212,15 @@ function roles_et_permissions_user_default_permissions() {
     'module' => 'features',
   );
 
+  // Exported permission: 'administer field collections'.
+  $permissions['administer field collections'] = array(
+    'name' => 'administer field collections',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_collection',
+  );
+
   // Exported permission: 'administer fieldgroups'.
   $permissions['administer fieldgroups'] = array(
     'name' => 'administer fieldgroups',
@@ -530,6 +539,13 @@ function roles_et_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create chanson content'.
+  $permissions['create chanson content'] = array(
+    'name' => 'create chanson content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create page content'.
   $permissions['create page content'] = array(
     'name' => 'create page content',
@@ -591,6 +607,13 @@ function roles_et_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any chanson content'.
+  $permissions['delete any chanson content'] = array(
+    'name' => 'delete any chanson content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any page content'.
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
@@ -613,6 +636,13 @@ function roles_et_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own chanson content'.
+  $permissions['delete own chanson content'] = array(
+    'name' => 'delete own chanson content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -648,6 +678,20 @@ function roles_et_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete terms in pupitres'.
+  $permissions['delete terms in pupitres'] = array(
+    'name' => 'delete terms in pupitres',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in saisons'.
+  $permissions['delete terms in saisons'] = array(
+    'name' => 'delete terms in saisons',
+    'roles' => array(),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'diff view changes'.
@@ -688,6 +732,13 @@ function roles_et_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any chanson content'.
+  $permissions['edit any chanson content'] = array(
+    'name' => 'edit any chanson content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any page content'.
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
@@ -723,6 +774,13 @@ function roles_et_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own chanson content'.
+  $permissions['edit own chanson content'] = array(
+    'name' => 'edit own chanson content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own comments'.
   $permissions['edit own comments'] = array(
     'name' => 'edit own comments',
@@ -755,6 +813,20 @@ function roles_et_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'webform',
+  );
+
+  // Exported permission: 'edit terms in pupitres'.
+  $permissions['edit terms in pupitres'] = array(
+    'name' => 'edit terms in pupitres',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in saisons'.
+  $permissions['edit terms in saisons'] = array(
+    'name' => 'edit terms in saisons',
+    'roles' => array(),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit webform components'.

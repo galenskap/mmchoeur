@@ -77,14 +77,14 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1529226926;
+  $strongarm->value = 1529237738;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'pagrzt';
+  $strongarm->value = 'pah069';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -600,7 +600,6 @@ function configuration_strongarm() {
     28 => 'misc/ui/jquery.ui.resizable.min.js',
     29 => 'misc/ui/jquery.ui.dialog.min.js',
     30 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
-    31 => 'modules/contextual/contextual.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
@@ -647,7 +646,7 @@ function configuration_strongarm() {
     'domain' => '',
     'prefix' => 'fr',
     'weight' => '0',
-    'javascript' => '2fGwDZUDhvPK2nn9hL8b3d8f7yjXg-cK7XIzNnaOUlA',
+    'javascript' => 'fxrrGUtwXK1QMWKHjNN2rFQiIiNw4fRku0SMspuQHQE',
   );
   $export['language_default'] = $strongarm;
 
@@ -743,21 +742,22 @@ function configuration_strongarm() {
     23 => 29,
     24 => 28,
     25 => 27,
-    26 => 24,
-    27 => 23,
-    28 => 22,
-    29 => 21,
-    30 => 15,
-    31 => 14,
-    32 => 13,
-    33 => 11,
-    34 => 10,
-    35 => 7,
-    36 => 6,
-    37 => 5,
-    38 => 3,
-    39 => 2,
-    40 => 1,
+    26 => 26,
+    27 => 24,
+    28 => 23,
+    29 => 22,
+    30 => 21,
+    31 => 15,
+    32 => 14,
+    33 => 13,
+    34 => 11,
+    35 => 10,
+    36 => 7,
+    37 => 6,
+    38 => 5,
+    39 => 3,
+    40 => 2,
+    41 => 1,
   );
   $export['menu_masks'] = $strongarm;
 
@@ -841,7 +841,9 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'path_alias_whitelist';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    'taxonomy' => TRUE,
+  );
   $export['path_alias_whitelist'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -904,7 +906,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1529228212;
+  $strongarm->value = 1529237752;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();
