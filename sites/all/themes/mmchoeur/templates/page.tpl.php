@@ -11,7 +11,7 @@
 
     <nav id="main-menu" class="navigation main-menu">
       <?php print render($page['header']); ?>
-    </nav> <!-- /#main-menu -->
+    </nav>
 
   </div><!-- /.container -->
 </header>

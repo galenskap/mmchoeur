@@ -1,6 +1,6 @@
 header {
-  height: 77px;
   background: $lightbackground;
+  position: relative;
   &::before {
     content: '';
     display: block;
@@ -22,6 +22,9 @@ header {
       text-decoration: none;
     }
   }
+  .logo {
+    padding-bottom: 1rem;
+  }
   .brand, .baseline {
     font-family: $titlesfont;
     font-weight: 500;
@@ -37,28 +40,68 @@ header {
     list-style-type: none;
     padding: 0;
   }
+  //annoying hack
+  #main-menu div {
+    height: 100%;
+  }
   #main-menu .content >.menu {
     display: flex;
     margin: 0;
+    height: 100%;
+    align-items: stretch;
+    a, a:hover {
+      transition: color .3s;
+    }
+    a:hover {
+      color: $primary;
+    }
     //submenu
     ul.menu {
       max-height: 0;
       transition: max-height .3s ease-out;
       overflow: hidden;
       background: $lightbackground;
+      position: absolute;
+      top: 100%;
+      li {
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #eaeaea;
+        a {
+          font-size: 0.85rem;
+          text-transform: none;
+          padding: 0.8rem 0.5rem;
+          width: 100%;
+        }
+      }
     }
     // au survol
-    .expanded:hover ul.menu {
+    .expanded:hover ul.menu,
+    ul.menu:hover {
       max-height: 300px;
       transition: max-height .3s ease-in;
     }
     li {
-      display: block;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0;
       a, .nolink {
         padding: 0.5rem;
         text-transform: uppercase;
         font-family: $titlesfont;
         display: block;
+        cursor: pointer;
+      }
+      a.active::after,
+      .nolink.active::after {
+        content: '';
+        height: 5px;
+        background: $primary;
+        position: absolute;
+        top: calc(100% - 5px);
+        right: 0;
+        left: 0;
       }
     }
   }
@@ -72,6 +115,6 @@ header {
   }
   .title-zone .title {
     text-align: center;
-    padding: 1rem;
+    padding: 2rem 1rem;
   }
 }

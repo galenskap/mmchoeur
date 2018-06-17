@@ -4,6 +4,10 @@ body {
   background: $darkbackground;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -16,6 +20,8 @@ h4, .h4 {
 a {
   color: $primary;
 }
+
+
 
 
 // STRUCTURE
