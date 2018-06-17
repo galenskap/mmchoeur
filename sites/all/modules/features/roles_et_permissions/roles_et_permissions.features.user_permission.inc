@@ -1067,6 +1067,25 @@ function roles_et_permissions_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: 'view any chanson content'.
+  $permissions['view any chanson content'] = array(
+    'name' => 'view any chanson content',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'node_view_permissions',
+  );
+
+  // Exported permission: 'view any page content'.
+  $permissions['view any page content'] = array(
+    'name' => 'view any page content',
+    'roles' => array(
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'node_view_permissions',
+  );
+
   // Exported permission: 'view hidden fields'.
   $permissions['view hidden fields'] = array(
     'name' => 'view hidden fields',
@@ -1074,6 +1093,22 @@ function roles_et_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'simplify',
+  );
+
+  // Exported permission: 'view own chanson content'.
+  $permissions['view own chanson content'] = array(
+    'name' => 'view own chanson content',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'node_view_permissions',
+  );
+
+  // Exported permission: 'view own page content'.
+  $permissions['view own page content'] = array(
+    'name' => 'view own page content',
+    'roles' => array(),
+    'module' => 'node_view_permissions',
   );
 
   // Exported permission: 'view own unpublished content'.
