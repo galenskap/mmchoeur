@@ -1,0 +1,24 @@
+
+name = MMChoeur
+description = Thème créé pour l'association Music'M Choeur
+core = 7.x
+version = "0.0.1"
+
+stylesheets[all][] = css/all.css
+scripts[] = js/all.js
+
+regions[header] = Header
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+
+regions[sidebar_first] = Sidebar first
+regions[featured] = Featured
+regions[content] = Content
+regions[highlighted] = Highlighted
+
+regions[footer_firstcolumn] = Footer first column
+regions[footer_secondcolumn] = Footer second column
+regions[footer] = Footer
+
+settings[shortcut_module_link] = 0

@@ -600,6 +600,7 @@ function configuration_strongarm() {
     28 => 'misc/ui/jquery.ui.resizable.min.js',
     29 => 'misc/ui/jquery.ui.dialog.min.js',
     30 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
+    31 => 'modules/contextual/contextual.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
@@ -646,7 +647,7 @@ function configuration_strongarm() {
     'domain' => '',
     'prefix' => 'fr',
     'weight' => '0',
-    'javascript' => '7UQcR14pAZMLrgACS4ur4Uoxe6KFWRpL67ju4rnvcEM',
+    'javascript' => '2fGwDZUDhvPK2nn9hL8b3d8f7yjXg-cK7XIzNnaOUlA',
   );
   $export['language_default'] = $strongarm;
 
@@ -896,7 +897,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'bartik';
+  $strongarm->value = 'mmchoeur';
   $export['theme_default'] = $strongarm;
 
   $strongarm = new stdClass();

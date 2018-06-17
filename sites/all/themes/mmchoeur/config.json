@@ -1,0 +1,40 @@
+{
+  "styles": {
+    "input": "src\/*scss*\/*.scss",
+    "output": ".\/build",
+    "options": {
+      "dev": {
+        "errLogToConsole": true,
+        "outputStyle": "compact"
+      },
+      "prod": {
+        "outputStyle": "compressed"
+      }
+    }
+  },
+  "js": {
+    "input": "src\/js\/*.js",
+    "output": ".\/build",
+    "outputFile": "all.js"
+  },
+  "img": {
+    "input": "src\/images\/*.*",
+    "output": ".\/build\/img",
+    "str_needle": "images/",
+    "str_replace": "build/img/",
+    "options": {
+      "optimizationLevel": 3,
+      "progressive": true,
+      "interlaced": true
+    }
+  },
+  "autoprefixer": {
+    "browsers": [
+      "last 2 versions",
+      "> 5%"
+    ]
+  },
+  "browsersync": {
+      "proxy": ""
+  }
+}

@@ -1,0 +1,44 @@
+header {
+  height: 77px;
+  overflow: hidden;
+  background: white;
+  border-top: 5px solid red;
+  .container {
+    justify-content: space-between;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .brand, .baseline {
+    font-family: $titlesfont;
+    display: block;
+  }
+  .brand {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  .baseline {
+    font-size: 1.25rem;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .navbar-nav {
+    display: flex;
+    &>ul {
+      flex-direction: column;
+    }
+    .dropdown-menu {
+      height: 0;
+      overflow: hidden;
+      transition: .3s;
+    }
+    .dropdown:hover .dropdown-menu {
+      height: 100%;
+    }
+  }
+}
