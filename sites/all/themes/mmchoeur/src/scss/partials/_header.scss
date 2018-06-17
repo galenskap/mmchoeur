@@ -1,0 +1,77 @@
+header {
+  height: 77px;
+  background: $lightbackground;
+  &::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background: #362f2d; /* Old browsers */
+    background: -moz-linear-gradient(left, #362f2d 0%, #362f2d 12%, #f32f21 12%, #f32f21 37%, #00aef1 37%, #00aef1 62%, #00a650 62%, #00a650 87%, #fef568 87%, #fef568 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #362f2d 0%,#362f2d 12%,#f32f21 12%,#f32f21 37%,#00aef1 37%,#00aef1 62%,#00a650 62%,#00a650 87%,#fef568 87%,#fef568 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #362f2d 0%,#362f2d 12%,#f32f21 12%,#f32f21 37%,#00aef1 37%,#00aef1 62%,#00a650 62%,#00a650 87%,#fef568 87%,#fef568 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#362f2d', endColorstr='#fef568',GradientType=1 ); /* IE6-9 */;
+  }
+  .container {
+    justify-content: space-between;
+  }
+  a {
+    text-decoration: none;
+    color: $darkfont;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .brand, .baseline {
+    font-family: $titlesfont;
+    font-weight: 500;
+  }
+  .brand {
+    font-size: 1.7rem;
+    margin-top: 0.8rem;
+  }
+  .baseline {
+    font-size: 0.8rem;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  #main-menu .content >.menu {
+    display: flex;
+    margin: 0;
+    //submenu
+    ul.menu {
+      max-height: 0;
+      transition: max-height .3s ease-out;
+      overflow: hidden;
+      background: $lightbackground;
+    }
+    // au survol
+    .expanded:hover ul.menu {
+      max-height: 300px;
+      transition: max-height .3s ease-in;
+    }
+    li {
+      display: block;
+      a, .nolink {
+        padding: 0.5rem;
+        text-transform: uppercase;
+        font-family: $titlesfont;
+        display: block;
+      }
+    }
+  }
+}
+
+.heading {
+  .breadcrumb {
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    color: $lightfont;
+  }
+  .title-zone .title {
+    text-align: center;
+    padding: 1rem;
+  }
+}

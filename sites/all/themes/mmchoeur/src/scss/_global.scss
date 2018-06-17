@@ -1,0 +1,49 @@
+body {
+  font-family: $textsfont;
+  color: $darkfont;
+  background: $darkbackground;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+  font-family: $titlesfont;
+  font-weight: 500;
+  color: $lightfont;
+}
+
+a {
+  color: $primary;
+}
+
+
+// STRUCTURE
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+.flex-container {
+  display: flex;
+}
+.flex-container--column {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper {
+  background: $lightbackground;
+}
+
+
+// DRUPAL TABS
+.tabs ul {
+  width: 100%;
+  margin-top: 20px;
+  border-color: $primary;
+  a {
+    color: $primary;
+  }
+}
