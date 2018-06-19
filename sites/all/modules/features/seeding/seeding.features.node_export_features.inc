@@ -38,7 +38,7 @@ function seeding_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
       \'path\' => NULL,
       \'picture\' => \'0\',
-      \'promote\' => \'1\',
+      \'promote\' => \'0\',
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'sioc:Item\',
@@ -138,7 +138,7 @@ function seeding_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
       \'path\' => NULL,
       \'picture\' => \'0\',
-      \'promote\' => \'1\',
+      \'promote\' => \'0\',
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'sioc:Item\',
@@ -238,7 +238,7 @@ function seeding_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
       \'path\' => NULL,
       \'picture\' => \'0\',
-      \'promote\' => \'1\',
+      \'promote\' => \'0\',
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'sioc:Item\',
@@ -327,7 +327,7 @@ function seeding_node_export_features_default() {
             \'filemime\' => \'image/jpeg\',
             \'filesize\' => \'1102187\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1529433376\',
+            \'timestamp\' => \'1529434566\',
             \'uuid\' => \'bf01fd89-4dba-44e6-a058-aa9bc22247a8\',
             \'rdf_mapping\' => array(),
             \'alt\' => \'\',
@@ -349,7 +349,7 @@ function seeding_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
       \'path\' => NULL,
       \'picture\' => \'0\',
-      \'promote\' => \'1\',
+      \'promote\' => \'0\',
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'sioc:Item\',
@@ -768,7 +768,7 @@ function seeding_node_export_features_default() {
             \'filemime\' => \'image/jpeg\',
             \'filesize\' => \'268570\',
             \'status\' => \'1\',
-            \'timestamp\' => \'1529433609\',
+            \'timestamp\' => \'1529434566\',
             \'uuid\' => \'3d4442c3-67cb-441f-a331-0091501a40c9\',
             \'rdf_mapping\' => array(),
             \'alt\' => \'\',
@@ -790,7 +790,7 @@ function seeding_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
       \'path\' => NULL,
       \'picture\' => \'0\',
-      \'promote\' => \'1\',
+      \'promote\' => \'0\',
       \'rdf_mapping\' => array(
         \'rdftype\' => array(
           \'sioc:Item\',

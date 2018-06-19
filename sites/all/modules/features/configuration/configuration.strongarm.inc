@@ -91,7 +91,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'pal39j';
+  $strongarm->value = 'pal3x3';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -350,8 +350,11 @@ function configuration_strongarm() {
       'dependencies' => 'ce43b2cc540f90d9ef38740c8f0b0f83',
     ),
     'seeding' => array(
-      'node_export_features' => '075015c4f666f9e7f52bc890fd7ae32a',
+      'node_export_features' => 'ef015df1d2e4c86befb65a10ea008408',
       'dependencies' => 'ef57a038276ec89cbf2edcde72b04708',
+    ),
+    'vues_de_home' => array(
+      'dependencies' => '242d389f813a156ec0b8c564d5aff0c6',
     ),
   );
   $export['features_codecache'] = $strongarm;
@@ -703,26 +706,31 @@ function configuration_strongarm() {
     12 => 'misc/vertical-tabs.js',
     13 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
     14 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
-    15 => 'misc/jquery.cookie.js',
-    16 => 'misc/jquery.form.js',
+    15 => 'misc/collapse.js',
+    16 => 'misc/machine-name.js',
     17 => 'misc/autocomplete.js',
-    18 => 'sites/all/modules/contrib/views/js/base.js',
-    19 => 'misc/progress.js',
-    20 => 'misc/ajax.js',
-    21 => 'sites/all/modules/contrib/views/js/ajax_view.js',
-    22 => 'sites/all/modules/contrib/views_bulk_operations/js/views_bulk_operations.js',
-    23 => 'misc/batch.js',
-    24 => 'misc/collapse.js',
-    25 => 'misc/machine-name.js',
-    26 => 'misc/ui/jquery.ui.core.min.js',
-    27 => 'misc/ui/jquery.ui.widget.min.js',
-    28 => 'misc/ui/jquery.ui.button.min.js',
-    29 => 'misc/ui/jquery.ui.mouse.min.js',
-    30 => 'misc/ui/jquery.ui.draggable.min.js',
-    31 => 'misc/ui/jquery.ui.position.min.js',
-    32 => 'misc/ui/jquery.ui.resizable.min.js',
-    33 => 'misc/ui/jquery.ui.dialog.min.js',
-    34 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
+    18 => 'misc/jquery.cookie.js',
+    19 => 'misc/jquery.form.js',
+    20 => 'misc/progress.js',
+    21 => 'misc/ajax.js',
+    22 => 'misc/ui/jquery.ui.core.min.js',
+    23 => 'misc/ui/jquery.ui.widget.min.js',
+    24 => 'misc/ui/jquery.ui.button.min.js',
+    25 => 'misc/ui/jquery.ui.mouse.min.js',
+    26 => 'misc/ui/jquery.ui.draggable.min.js',
+    27 => 'misc/ui/jquery.ui.position.min.js',
+    28 => 'misc/ui/jquery.ui.resizable.min.js',
+    29 => 'misc/ui/jquery.ui.dialog.min.js',
+    30 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
+    31 => 'sites/all/modules/contrib/views/js/base.js',
+    32 => 'sites/all/modules/contrib/views/js/ajax_view.js',
+    33 => 'sites/all/modules/contrib/views_bulk_operations/js/views_bulk_operations.js',
+    34 => 'modules/file/file.js',
+    35 => 'misc/states.js',
+    36 => 'misc/textarea.js',
+    37 => 'modules/node/node.js',
+    38 => 'modules/comment/comment-node-form.js',
+    39 => 'sites/all/modules/contrib/pathauto/pathauto.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
@@ -769,7 +777,7 @@ function configuration_strongarm() {
     'domain' => '',
     'prefix' => 'fr',
     'weight' => '0',
-    'javascript' => 'fVT5dbp-StevscF_X_7JUjjehr1MtqbQAxX37uPp1nE',
+    'javascript' => 'QjvS4tK1zT9W46vmuIuOrfmFZoLL8-9XWunCPeaw-XQ',
   );
   $export['language_default'] = $strongarm;
 

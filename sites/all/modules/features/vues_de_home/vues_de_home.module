@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Vues de home feature.
+ */
+
+include_once 'vues_de_home.features.inc';
