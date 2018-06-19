@@ -1,0 +1,8 @@
+name = Block de home
+core = 7.x
+package = Homepage
+dependencies[] = fe_block
+features[fe_block_boxes][] = edito
+features[fe_block_settings][] = block-edito
+features[fe_block_settings][] = system-navigation
+features[features_api][] = api:2

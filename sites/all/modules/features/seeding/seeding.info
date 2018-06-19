@@ -1,0 +1,17 @@
+name = Seeding
+core = 7.x
+package = Contenu
+dependencies[] = chansons
+dependencies[] = configuration
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = node_export_features
+dependencies[] = pages
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[node_export_features][] = 531caae5-1654-4f0e-9d22-d4f6771e564d
+features[node_export_features][] = a0b3d12b-e72d-4287-bedc-a5ea5f0338bd
+features[node_export_features][] = ba7092eb-b5a8-4eb7-8c45-6fded0394dc8
+features[node_export_features][] = f03606e4-12ea-42ec-840e-fc94fb50ae20
+features_exclude[dependencies][node_export_features] = node_export_features
