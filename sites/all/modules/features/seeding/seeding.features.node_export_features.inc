@@ -17,6 +17,417 @@ function seeding_node_export_features_default() {
       \'comment_count\' => \'0\',
       \'created\' => NULL,
       \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
+      \'field_url_youtube\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'https://www.youtube.com/watch?v=rafxXc75KZo\',
+            \'format\' => NULL,
+            \'safe_value\' => \'https://www.youtube.com/watch?v=rafxXc75KZo\',
+          ),
+        ),
+      ),
+      \'files\' => array(),
+      \'language\' => \'fr\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_timestamp\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'log\' => \'\',
+      \'menu\' => NULL,
+      \'name\' => \'admincw\',
+      \'nid\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+      \'path\' => NULL,
+      \'picture\' => \'0\',
+      \'promote\' => \'1\',
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'revision_timestamp\' => NULL,
+      \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
+      \'status\' => \'1\',
+      \'sticky\' => \'0\',
+      \'title\' => \'Concert du 26 juin 2016\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'type\' => \'videos\',
+      \'uid\' => \'1\',
+      \'uuid\' => \'0911c673-ae7b-41de-a1a9-7de3c8b1160f\',
+      \'vid\' => NULL,
+      \'vuuid\' => \'7c705318-ce73-4747-abfe-13cb597d7d7f\',
+    ),
+  (object) array(
+      \'changed\' => NULL,
+      \'cid\' => \'0\',
+      \'comment\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'created\' => NULL,
+      \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
+      \'field_url_youtube\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'https://www.youtube.com/watch?v=x36RzaXQqLk\',
+            \'format\' => NULL,
+            \'safe_value\' => \'https://www.youtube.com/watch?v=x36RzaXQqLk\',
+          ),
+        ),
+      ),
+      \'files\' => array(),
+      \'language\' => \'fr\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_timestamp\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'log\' => \'\',
+      \'menu\' => NULL,
+      \'name\' => \'admincw\',
+      \'nid\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+      \'path\' => NULL,
+      \'picture\' => \'0\',
+      \'promote\' => \'1\',
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'revision_timestamp\' => NULL,
+      \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
+      \'status\' => \'1\',
+      \'sticky\' => \'0\',
+      \'title\' => \'Fête de la musique 2016\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'type\' => \'videos\',
+      \'uid\' => \'1\',
+      \'uuid\' => \'254e5b12-6f06-4f03-b145-eb2a697bb852\',
+      \'vid\' => NULL,
+      \'vuuid\' => \'baeaf668-1db8-4668-acc2-a441eefd5613\',
+    ),
+  (object) array(
+      \'changed\' => NULL,
+      \'cid\' => \'0\',
+      \'comment\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'created\' => NULL,
+      \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
+      \'field_url_youtube\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'https://www.youtube.com/watch?v=LWUqs1gNen4&t=1079s\',
+            \'format\' => NULL,
+            \'safe_value\' => \'https://www.youtube.com/watch?v=LWUqs1gNen4&amp;t=1079s\',
+          ),
+        ),
+      ),
+      \'files\' => array(),
+      \'language\' => \'fr\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_timestamp\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'log\' => \'\',
+      \'menu\' => NULL,
+      \'name\' => \'admincw\',
+      \'nid\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+      \'path\' => NULL,
+      \'picture\' => \'0\',
+      \'promote\' => \'1\',
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'revision_timestamp\' => NULL,
+      \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
+      \'status\' => \'1\',
+      \'sticky\' => \'0\',
+      \'title\' => \'Concert à Fontenay, le 22 mai 2016\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'type\' => \'videos\',
+      \'uid\' => \'1\',
+      \'uuid\' => \'3810c908-04af-4a67-88a8-0a03df192f9a\',
+      \'vid\' => NULL,
+      \'vuuid\' => \'d1c72ca5-4f51-4a9c-832d-2dbdd3fb0839\',
+    ),
+  (object) array(
+      \'changed\' => NULL,
+      \'cid\' => \'0\',
+      \'comment\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'created\' => NULL,
+      \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
+      \'field_image\' => array(
+        \'und\' => array(
+          array(
+            \'fid\' => \'4\',
+            \'uid\' => \'1\',
+            \'filename\' => \'1465492736.jpg\',
+            \'uri\' => \'public://1465492736.jpg\',
+            \'filemime\' => \'image/jpeg\',
+            \'filesize\' => \'1102187\',
+            \'status\' => \'1\',
+            \'timestamp\' => \'1529433376\',
+            \'uuid\' => \'bf01fd89-4dba-44e6-a058-aa9bc22247a8\',
+            \'rdf_mapping\' => array(),
+            \'alt\' => \'\',
+            \'title\' => \'\',
+            \'width\' => \'1920\',
+            \'height\' => \'1080\',
+          ),
+        ),
+      ),
+      \'files\' => array(),
+      \'language\' => \'fr\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_timestamp\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'log\' => \'\',
+      \'menu\' => NULL,
+      \'name\' => \'admincw\',
+      \'nid\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+      \'path\' => NULL,
+      \'picture\' => \'0\',
+      \'promote\' => \'1\',
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'revision_timestamp\' => NULL,
+      \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
+      \'status\' => \'1\',
+      \'sticky\' => \'0\',
+      \'title\' => \'Concert du 26 juin 2016\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'type\' => \'slider\',
+      \'uid\' => \'1\',
+      \'uuid\' => \'3e0245fa-1fb7-40af-a557-7e0cb878f9ba\',
+      \'vid\' => NULL,
+      \'vuuid\' => \'218269ce-8267-4081-b60f-35a1f07f81a7\',
+    ),
+  (object) array(
+      \'changed\' => NULL,
+      \'cid\' => \'0\',
+      \'comment\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'created\' => NULL,
+      \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
       \'field_auteur\' => array(
         \'und\' => array(
           array(
@@ -124,6 +535,9 @@ function seeding_node_export_features_default() {
       ),
       \'revision_timestamp\' => NULL,
       \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
       \'status\' => \'1\',
       \'sticky\' => \'0\',
       \'title\' => \'Ensemble\',
@@ -222,6 +636,9 @@ function seeding_node_export_features_default() {
       ),
       \'revision_timestamp\' => NULL,
       \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
       \'status\' => \'1\',
       \'sticky\' => \'0\',
       \'title\' => \'Notre chorale\',
@@ -320,6 +737,9 @@ function seeding_node_export_features_default() {
       ),
       \'revision_timestamp\' => NULL,
       \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
       \'status\' => \'1\',
       \'sticky\' => \'0\',
       \'title\' => \'Recrutement\',
@@ -330,6 +750,117 @@ function seeding_node_export_features_default() {
       \'uuid\' => \'ba7092eb-b5a8-4eb7-8c45-6fded0394dc8\',
       \'vid\' => NULL,
       \'vuuid\' => \'c8d998dd-7213-4317-b7e1-1a35ca7ab6f1\',
+    ),
+  (object) array(
+      \'changed\' => NULL,
+      \'cid\' => \'0\',
+      \'comment\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'created\' => NULL,
+      \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
+      \'field_image\' => array(
+        \'und\' => array(
+          array(
+            \'fid\' => \'5\',
+            \'uid\' => \'1\',
+            \'filename\' => \'1510934701.jpg\',
+            \'uri\' => \'public://1510934701.jpg\',
+            \'filemime\' => \'image/jpeg\',
+            \'filesize\' => \'268570\',
+            \'status\' => \'1\',
+            \'timestamp\' => \'1529433609\',
+            \'uuid\' => \'3d4442c3-67cb-441f-a331-0091501a40c9\',
+            \'rdf_mapping\' => array(),
+            \'alt\' => \'\',
+            \'title\' => \'\',
+            \'width\' => \'1024\',
+            \'height\' => \'512\',
+          ),
+        ),
+      ),
+      \'files\' => array(),
+      \'language\' => \'fr\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_timestamp\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'log\' => \'\',
+      \'menu\' => NULL,
+      \'name\' => \'admincw\',
+      \'nid\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+      \'path\' => NULL,
+      \'picture\' => \'0\',
+      \'promote\' => \'1\',
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'revision_timestamp\' => NULL,
+      \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
+      \'status\' => \'1\',
+      \'sticky\' => \'0\',
+      \'title\' => "Photo du choeur prise lors du concert à l\'église d\'Adamville",
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'type\' => \'slider\',
+      \'uid\' => \'1\',
+      \'uuid\' => \'d8e51947-dc11-4eeb-b0db-01daee48cf4d\',
+      \'vid\' => NULL,
+      \'vuuid\' => \'7d844ed7-54a1-4dfa-9118-56190a824797\',
     ),
   (object) array(
       \'body\' => array(
@@ -418,6 +949,9 @@ function seeding_node_export_features_default() {
       ),
       \'revision_timestamp\' => NULL,
       \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
       \'status\' => \'1\',
       \'sticky\' => \'0\',
       \'title\' => \'Chef de choeur\',
