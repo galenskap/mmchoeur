@@ -80,7 +80,6 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="chanson-node <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content clearfix"<?php print $content_attributes; ?>>
-      <?php kpr(node_load($node->nid)) ?>
       <div class="main-col">
           <div class="titles">
               <div class="author"><?php echo $node->field_auteur['und'][0]['value'] ?></div>
@@ -111,6 +110,60 @@
                         <a href="<?php echo file_create_url($doc['uri']) ?>"><?php echo $name ?></a>
                     </li>
                   <?php  } ?>
+                  </ul>
+              <?php endforeach; ?>
+          <?php endif; ?>
+
+          <?php if ($node->field_piano['und']): ?>
+              <h3><?php echo t('Pianos') ?></h3>
+              <?php foreach ($node->field_piano['und'] as $pid):
+                  $piano = field_collection_item_load($pid['value'], true);
+                  $term = taxonomy_term_load($piano->field_pupitre['und'][0]['tid']);
+                  ?>
+                  <h4><?php echo $term->name ?></h4>
+                  <ul>
+                      <?php foreach ($piano->field_fichiers['und'] as $file) {
+                          $name = (!empty($file['description'])) ? $file['description'] : $file['filename'];
+                          $type = explode('/', $file['filemime']);
+                          $type = end($type);
+                          ?>
+                          <li>
+                              <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo  $type ?></span></a>
+                              <?php if ($type != 'midi'): ?>
+                                  <audio controls>
+                                      <source src="<?php echo file_create_url($file['uri']) ?>" type="<?php echo $file['filemime'] ?>">
+                                      Your browser does not support the audio element.
+                                  </audio>
+                              <?php endif; ?>
+                          </li>
+                      <?php  } ?>
+                  </ul>
+              <?php endforeach; ?>
+          <?php endif; ?>
+
+          <?php if ($node->field_repetitions['und']): ?>
+              <h3><?php echo t('Répétitions') ?></h3>
+              <?php foreach ($node->field_repetitions['und'] as $pid):
+                  $piano = field_collection_item_load($pid['value'], true);
+                  $term = taxonomy_term_load($piano->field_pupitre['und'][0]['tid']);
+                  ?>
+                  <h4><?php echo $term->name ?></h4>
+                  <ul>
+                      <?php foreach ($piano->field_fichiers['und'] as $file) {
+                          $name = (!empty($file['description'])) ? $file['description'] : $file['filename'];
+                          $type = explode('/', $file['filemime']);
+                          $type = end($type);
+                          ?>
+                          <li>
+                              <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo  $type ?></span></a>
+                              <?php if ($type != 'midi'): ?>
+                                  <audio controls>
+                                      <source src="<?php echo file_create_url($file['uri']) ?>" type="<?php echo $file['filemime'] ?>">
+                                      Your browser does not support the audio element.
+                                  </audio>
+                              <?php endif; ?>
+                          </li>
+                      <?php  } ?>
                   </ul>
               <?php endforeach; ?>
           <?php endif; ?>
