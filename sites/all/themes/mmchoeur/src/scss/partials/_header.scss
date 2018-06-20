@@ -63,6 +63,7 @@ header {
       background: $lightbackground;
       position: absolute;
       top: 100%;
+      z-index: 50;
       li {
         padding: 0;
         margin: 0;

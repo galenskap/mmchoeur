@@ -27,15 +27,12 @@ a {
 // STRUCTURE
 
 .container {
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
+  @extend %container;
 }
 .flex-container {
-  display: flex;
+  @extend %flex-container;
 }
 .flex-container--column {
-  display: flex;
   flex-direction: column;
 }
 

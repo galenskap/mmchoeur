@@ -1,0 +1,10 @@
+.front .main-wrapper {
+  background: $darkbackground;
+}
+.view-home-slider,
+.view-home-videos {
+  @extend %flex-container;
+  overflow: hidden;
+  margin-top: 1rem;
+  position: relative;
+}

@@ -1,0 +1,16 @@
+@mixin container() {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+%container {
+  @include container();
+}
+
+@mixin flexcontainer() {
+  @include container();
+  display: flex;
+}
+%flex-container {
+  @include flexcontainer();
+}

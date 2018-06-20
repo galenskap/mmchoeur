@@ -1,6 +1,12 @@
 @import "reset.scss";
 @import "vars.scss";
+@import "mixins.scss";
 @import "global.scss";
 
 @import "partials/header.scss";
 @import "partials/footer.scss";
+
+@import "owlcarousel/owl.carousel.scss";
+@import "owlcarousel/owl.theme.default.scss";
+
+@import "pages/home.scss";

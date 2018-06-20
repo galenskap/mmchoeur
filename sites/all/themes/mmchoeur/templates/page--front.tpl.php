@@ -1,17 +1,8 @@
 <?php include('partials/_header.php'); ?>
 
-<?php include('partials/_headings.php'); ?>
+<?php //include('partials/_headings.php'); ?>
 
 <div class="main-wrapper">
-  <div class="container flex-container">
-    <?php if ($page['sidebar_first']): ?>
-      <div id="sidebar-first" class="sidebar wrapper">
-        <div class="container">
-          <?php print render($page['sidebar_first']); ?>
-        </div>
-      </div> <!-- end #sidebar-first -->
-    <?php endif; ?>
-
     <main id="main-content">
       <?php if ($page['highlighted']): ?>
         <div id="highlighted" class="container highlighted">
