@@ -84,7 +84,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1529428824;
+  $strongarm->value = 1529949349;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -98,7 +98,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ctools_last_cron';
-  $strongarm->value = 1529428825;
+  $strongarm->value = 1529949349;
   $export['ctools_last_cron'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -296,7 +296,7 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => '8153b1869c11886d028d018eacf208cb',
+      'variable' => 'aa87f31a4b3ee931b78d77b371536ae6',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
@@ -354,7 +354,8 @@ function configuration_strongarm() {
       'dependencies' => 'ef57a038276ec89cbf2edcde72b04708',
     ),
     'vues_de_home' => array(
-      'dependencies' => '242d389f813a156ec0b8c564d5aff0c6',
+      'dependencies' => 'f334ac27b969221f20f7aa53080cd124',
+      'views_view' => '53861f1104f2f1fceccea77483255983',
     ),
   );
   $export['features_codecache'] = $strongarm;
@@ -731,6 +732,20 @@ function configuration_strongarm() {
     37 => 'modules/node/node.js',
     38 => 'modules/comment/comment-node-form.js',
     39 => 'sites/all/modules/contrib/pathauto/pathauto.js',
+    40 => 'modules/block/block.js',
+    41 => 'misc/tabledrag.js',
+    42 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
+    43 => 'modules/filter/filter.js',
+    44 => 'sites/all/themes/mmchoeur/build/all.js',
+    45 => 'modules/contextual/contextual.js',
+    46 => 'sites/all/modules/contrib/ctools/js/dropbutton.js',
+    47 => 'sites/all/modules/contrib/module_filter/js/module_filter.js',
+    48 => 'misc/jquery.ba-bbq.js',
+    49 => 'sites/all/modules/contrib/module_filter/js/modules.js',
+    50 => 'sites/all/modules/contrib/module_filter/js/module_filter_tab.js',
+    51 => 'sites/all/modules/contrib/module_filter/js/dynamic_position.js',
+    52 => 'sites/all/modules/contrib/token/token.js',
+    53 => 'misc/batch.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
@@ -777,7 +792,7 @@ function configuration_strongarm() {
     'domain' => '',
     'prefix' => 'fr',
     'weight' => '0',
-    'javascript' => 'QjvS4tK1zT9W46vmuIuOrfmFZoLL8-9XWunCPeaw-XQ',
+    'javascript' => 'nlWYk7Js8zc4JVH7b6R25aUMRkd5RdR6iUM-cdEtvcA',
   );
   $export['language_default'] = $strongarm;
 
@@ -839,9 +854,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_expanded';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_expanded'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -899,9 +912,6 @@ function configuration_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'module_filter_recent_modules';
   $strongarm->value = array(
-    'configuration' => 1529232360,
-    'node_export_features' => 1529232468,
-    'node_export_features_ui' => 1529232468,
     'fe_block' => 1529432737,
     'rh_node' => 1529433813,
   );
@@ -913,6 +923,13 @@ function configuration_strongarm() {
   $strongarm->name = 'node_admin_theme';
   $strongarm->value = 1;
   $export['node_admin_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_cron_last';
+  $strongarm->value = '1529525215';
+  $export['node_cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -975,9 +992,51 @@ function configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_article_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_article_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_chanson_pattern';
+  $strongarm->value = 'partotheque/[node:title]';
+  $export['pathauto_node_chanson_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_page_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_page_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_pattern';
   $strongarm->value = 'content/[node:title]';
   $export['pathauto_node_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_slider_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_slider_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_videos_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_videos_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_webform_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_webform_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -992,6 +1051,20 @@ function configuration_strongarm() {
   $strongarm->name = 'pathauto_taxonomy_term_pattern';
   $strongarm->value = '[term:vocabulary]/[term:name]';
   $export['pathauto_taxonomy_term_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_pupitres_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_pupitres_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_saisons_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_saisons_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1117,7 +1190,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1529428827;
+  $strongarm->value = 1529949366;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();
