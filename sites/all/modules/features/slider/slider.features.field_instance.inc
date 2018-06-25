@@ -14,7 +14,7 @@ function slider_field_default_field_instances() {
   $field_instances['node-slider-field_image'] = array(
     'bundle' => 'slider',
     'deleted' => 0,
-    'description' => 'L\'image sera affichée au format 900x340px. Il y a un redimensionnement automatique, mais l\'idéal reste d\'envoyer tant que possible les images au bon format (tout en longueur)',
+    'description' => 'L\'image sera affichée au format 1024x380px. Il y a un redimensionnement automatique, mais l\'idéal reste d\'envoyer tant que possible les images au bon format (tout en longueur)',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -44,7 +44,7 @@ function slider_field_default_field_instances() {
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
-      'min_resolution' => '900x340',
+      'min_resolution' => '1024x380',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -63,7 +63,7 @@ function slider_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Image');
-  t('L\'image sera affichée au format 900x340px. Il y a un redimensionnement automatique, mais l\'idéal reste d\'envoyer tant que possible les images au bon format (tout en longueur)');
+  t('L\'image sera affichée au format 1024x380px. Il y a un redimensionnement automatique, mais l\'idéal reste d\'envoyer tant que possible les images au bon format (tout en longueur)');
 
   return $field_instances;
 }

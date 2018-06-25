@@ -26,8 +26,8 @@ function slider_image_default_styles() {
       1 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 900,
-          'height' => 340,
+          'width' => 1024,
+          'height' => 380,
         ),
         'weight' => 1,
       ),

@@ -14,6 +14,7 @@ function block_de_home_default_fe_block_settings() {
 
   $export['block-edito'] = array(
     'cache' => -1,
+    'css_class' => 'edito',
     'custom' => 0,
     'machine_name' => 'edito',
     'module' => 'block',
@@ -34,7 +35,7 @@ function block_de_home_default_fe_block_settings() {
         'weight' => 0,
       ),
       'mmchoeur' => array(
-        'region' => 'content',
+        'region' => 'home_higher_central',
         'status' => 1,
         'theme' => 'mmchoeur',
         'weight' => 0,
@@ -52,6 +53,7 @@ function block_de_home_default_fe_block_settings() {
 
   $export['system-navigation'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'navigation',
     'module' => 'system',
