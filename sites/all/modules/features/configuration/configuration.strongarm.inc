@@ -296,7 +296,7 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => 'aa87f31a4b3ee931b78d77b371536ae6',
+      'variable' => '4b804ea9b38da597167699a6bfc36318',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
@@ -329,9 +329,9 @@ function configuration_strongarm() {
       'node' => '54940451e55c6b7e2d2be073094f71ea',
       'variable' => 'ca9573fdaa467f9ffdc9bf34d8d992d4',
       'field_base' => 'de96797ce2772667988801179020a43c',
-      'field_instance' => '07395e8334b2e8cee2a12516e526e790',
+      'field_instance' => '751a40229e078c9326f48a9699e6cc51',
       'dependencies' => 'd0793a4f6f6d7f626cf1626f673f4b02',
-      'image' => '904c05e22b57e53e62bbeebfa709f9e6',
+      'image' => 'fa2fe591385c6f56c16110f23f899813',
     ),
     'video' => array(
       'node' => '55b2588f4f9b34831f62516d36641c2e',
@@ -342,7 +342,7 @@ function configuration_strongarm() {
     ),
     'block_de_home' => array(
       'fe_block_boxes' => '36dbab6d38f2e7b838cbd2617e520bc6',
-      'fe_block_settings' => 'a661bc627ea53484a84d133ccbcd1f2b',
+      'fe_block_settings' => 'efe351f1f7e5132dc01314505b34856c',
       'dependencies' => 'a8ef601e427a70b3da29a93728ffa24b',
     ),
     'menu_seeding' => array(
@@ -1169,7 +1169,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
-  $strongarm->value = 'Music m\'Choeur';
+  $strongarm->value = 'Music\'M Choeur';
   $export['site_name'] = $strongarm;
 
   $strongarm = new stdClass();
