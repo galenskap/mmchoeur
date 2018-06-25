@@ -29,7 +29,18 @@
       <?php endif; ?>
 
       <div class="content">
-        <?php print render($page['content']); ?>
+        <div class="homezone top">
+          <?php print render($page['home_top']); ?>
+        </div>
+        <div class="homezone higher-central">
+          <?php print render($page['home_higher_central']); ?>
+        </div>
+        <div class="homezone lower-central">
+          <?php print render($page['home_lower_central']); ?>
+        </div>
+        <div class="homezone bottom">
+          <?php print render($page['home_bottom']); ?>
+        </div>
       </div>
     </main>
   </div><!-- end of container -->

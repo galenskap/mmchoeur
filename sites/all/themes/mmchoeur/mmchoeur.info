@@ -17,6 +17,11 @@ regions[featured] = Featured
 regions[content] = Content
 regions[highlighted] = Highlighted
 
+regions[home_top] = Upper home content
+regions[home_higher_central] = Central home content (top)
+regions[home_lower_central] = Central home content (bottom)
+regions[home_bottom] = Lower home content
+
 regions[footer_firstcolumn] = Footer first column
 regions[footer_secondcolumn] = Footer second column
 regions[footer] = Footer

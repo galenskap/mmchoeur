@@ -1,10 +1,42 @@
 .front .main-wrapper {
   background: $darkbackground;
 }
+.homezone {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.homezone.top {
+  padding-bottom: 0;
+}
+.homezone.higher-central {
+  padding-top: 0;
+}
 .view-home-slider,
 .view-home-videos {
   @extend %flex-container;
   overflow: hidden;
   margin-top: 1rem;
   position: relative;
+  text-align: left;
+}
+.region-home-higher-central,
+.region-home-bottom {
+  @extend %flex-container;
+}
+#block-views-home-videos-block .view-content {
+  @extend %flex-container;
+  justify-content: space-between;
+}
+#block-views-home-videos-block .content {
+  text-align: right;
+}
+.homezone.lower-central {
+  background: $lightbackground;
+  padding-bottom: 2rem;
+}
+.region-home-lower-central {
+  @extend %container;
+}
+.homezone .know-more {
+  margin-top: 2rem;
 }

@@ -1,6 +1,6 @@
 @mixin container() {
   width: 100%;
-  max-width: 900px;
+  max-width: 1024px;
   margin: auto;
 }
 %container {
@@ -13,4 +13,16 @@
 }
 %flex-container {
   @include flexcontainer();
+}
+
+@mixin button($color) {
+  padding: 1rem 2rem;
+  background: $color;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+}
+%primary-button {
+  @include button($primary);
 }

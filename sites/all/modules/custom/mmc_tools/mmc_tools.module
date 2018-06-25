@@ -1,0 +1,30 @@
+<?php
+
+/*
+ * Takes a Youtube URL and returns only the video slug
+ */
+function mmc_tools_youtube_slug($url)
+{
+  $pattern = '#^(?:https?://|//)?(?:www\.|m\.)?(?:youtu\.be/|youtube\.com/(?:embed/|v/|watch\?v=|watch\?.+&v=))([\w-]{11})(?![\w-])#';
+  preg_match($pattern, $url, $matches);
+  $slug = (isset($matches[1])) ? $matches[1] : false;
+  return $slug;
+}
+
+/*
+ * Takes a Youtube URL and returns a full player
+ */
+function mmc_tools_youtube_player($url, $width = null, $height = null)
+{
+  $w = is_null($width)? "560" : $width;
+  $h = is_null($height)? "560" : $height;
+  $slug = mmc_tools_youtube_slug($url);
+  $youtubeUrl = 'https://www.youtube.com/embed/'.$slug.'?autoplay=0&rel=0';
+  $player = '<iframe width="'.$w.'"
+                     height="'.$h.'"
+                     src="'.$youtubeUrl.'"
+                     frameborder="0"
+                     allowfullscreen>
+             </iframe>';
+  return $player;
+}

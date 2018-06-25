@@ -20,8 +20,9 @@ h4, .h4 {
 a {
   color: $primary;
 }
-
-
+.btn.primary {
+  @extend %primary-button;
+}
 
 
 // STRUCTURE
