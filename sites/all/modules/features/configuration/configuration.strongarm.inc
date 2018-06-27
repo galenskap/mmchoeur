@@ -84,7 +84,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1529949349;
+  $strongarm->value = 1530118495;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -98,7 +98,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ctools_last_cron';
-  $strongarm->value = 1529949349;
+  $strongarm->value = 1530118496;
   $export['ctools_last_cron'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -296,7 +296,7 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => '4b804ea9b38da597167699a6bfc36318',
+      'variable' => '2f6ad3263af0510464e34ffddecd2f57',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
@@ -1190,7 +1190,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1529949366;
+  $strongarm->value = 1530118498;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();

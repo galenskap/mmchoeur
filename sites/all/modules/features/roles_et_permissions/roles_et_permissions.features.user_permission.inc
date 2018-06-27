@@ -15,6 +15,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'admin_menu',
   );
@@ -24,6 +25,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'system',
   );
@@ -51,8 +53,6 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'access comments',
     'roles' => array(
       'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'comment',
   );
@@ -64,6 +64,7 @@ function roles_et_permissions_user_default_permissions() {
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -73,6 +74,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'access content overview',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -145,6 +147,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'access user profiles',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'user',
   );
@@ -163,6 +166,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'administer blocks',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'block',
   );
@@ -289,6 +293,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'menu',
   );
@@ -442,6 +447,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'administer users',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'user',
   );
@@ -542,7 +548,10 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'create chanson content'.
   $permissions['create chanson content'] = array(
     'name' => 'create chanson content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editeur' => 'editeur',
+    ),
     'module' => 'node',
   );
 
@@ -551,6 +560,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'create page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -567,7 +577,9 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'create webform content'.
   $permissions['create webform content'] = array(
     'name' => 'create webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -610,7 +622,9 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'delete any chanson content'.
   $permissions['delete any chanson content'] = array(
     'name' => 'delete any chanson content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -626,7 +640,9 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'delete any webform content'.
   $permissions['delete any webform content'] = array(
     'name' => 'delete any webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -642,7 +658,10 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'delete own chanson content'.
   $permissions['delete own chanson content'] = array(
     'name' => 'delete own chanson content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editeur' => 'editeur',
+    ),
     'module' => 'node',
   );
 
@@ -651,6 +670,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'delete own page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -658,7 +678,9 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'delete own webform content'.
   $permissions['delete own webform content'] = array(
     'name' => 'delete own webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -683,14 +705,18 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'delete terms in pupitres'.
   $permissions['delete terms in pupitres'] = array(
     'name' => 'delete terms in pupitres',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in saisons'.
   $permissions['delete terms in saisons'] = array(
     'name' => 'delete terms in saisons',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -735,7 +761,10 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'edit any chanson content'.
   $permissions['edit any chanson content'] = array(
     'name' => 'edit any chanson content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editeur' => 'editeur',
+    ),
     'module' => 'node',
   );
 
@@ -744,6 +773,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'edit any page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -751,7 +781,9 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'edit any webform content'.
   $permissions['edit any webform content'] = array(
     'name' => 'edit any webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -777,7 +809,10 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'edit own chanson content'.
   $permissions['edit own chanson content'] = array(
     'name' => 'edit own chanson content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editeur' => 'editeur',
+    ),
     'module' => 'node',
   );
 
@@ -795,6 +830,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'edit own page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -802,7 +838,9 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'edit own webform content'.
   $permissions['edit own webform content'] = array(
     'name' => 'edit own webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -818,14 +856,20 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'edit terms in pupitres'.
   $permissions['edit terms in pupitres'] = array(
     'name' => 'edit terms in pupitres',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editeur' => 'editeur',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in saisons'.
   $permissions['edit terms in saisons'] = array(
     'name' => 'edit terms in saisons',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editeur' => 'editeur',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -870,6 +914,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'flush caches',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'admin_menu',
   );
@@ -933,7 +978,6 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'post comments',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'comment',
   );
@@ -979,7 +1023,6 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'skip comment approval',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'comment',
   );
@@ -1063,6 +1106,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'use text format full_html',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'filter',
   );
@@ -1107,7 +1151,9 @@ function roles_et_permissions_user_default_permissions() {
   // Exported permission: 'view own page content'.
   $permissions['view own page content'] = array(
     'name' => 'view own page content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node_view_permissions',
   );
 
@@ -1134,6 +1180,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'system',
   );
