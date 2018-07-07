@@ -84,21 +84,21 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1530118495;
+  $strongarm->value = 1530967204;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'pal3x3';
+  $strongarm->value = 'pbhzdg';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ctools_last_cron';
-  $strongarm->value = 1530118496;
+  $strongarm->value = 1530967205;
   $export['ctools_last_cron'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -296,7 +296,7 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => '2f6ad3263af0510464e34ffddecd2f57',
+      'variable' => 'cad01e68e38bfeaeb2a9a5e85e059bff',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
@@ -304,7 +304,7 @@ function configuration_strongarm() {
     ),
     'roles_et_permissions' => array(
       'user_role' => '57d23ee3deb6e9262fa3b2617586b072',
-      'user_permission' => 'a3e7988ff1425faea48f87590886fa22',
+      'user_permission' => 'f368f16ab288f4e0e44c463265cb8fc7',
       'dependencies' => 'c449e82b68412e3efc32500b730fb22f',
     ),
     'pages' => array(
@@ -356,6 +356,10 @@ function configuration_strongarm() {
     'vues_de_home' => array(
       'dependencies' => 'f334ac27b969221f20f7aa53080cd124',
       'views_view' => '53861f1104f2f1fceccea77483255983',
+    ),
+    'partotheque' => array(
+      'dependencies' => '242d389f813a156ec0b8c564d5aff0c6',
+      'views_view' => '926cc1d6e38e2f88be8091b60f3cd287',
     ),
   );
   $export['features_codecache'] = $strongarm;
@@ -695,57 +699,41 @@ function configuration_strongarm() {
     0 => 'misc/drupal.js',
     1 => 'misc/jquery.js',
     2 => 'misc/jquery.once.js',
-    3 => 'sites/all/themes/adminimal_theme/js/jRespond.js',
-    4 => 'sites/all/themes/adminimal_theme/js/adminimal_theme.js',
-    5 => 'sites/all/modules/contrib/devel/devel_krumo.js',
-    6 => 'sites/all/modules/contrib/adminimal_admin_menu/js/jquery.min.js',
-    7 => 'sites/all/modules/contrib/adminimal_admin_menu/js/slicknav/jquery-no-conflict.slicknav.js',
-    8 => 'sites/all/modules/contrib/adminimal_admin_menu/js/adminimal_admin_menu.js',
-    9 => 'sites/all/modules/contrib/features/features.js',
-    10 => 'misc/tableheader.js',
-    11 => 'misc/form.js',
-    12 => 'misc/vertical-tabs.js',
-    13 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
-    14 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
+    3 => 'sites/all/themes/mmchoeur/build/all.js',
+    4 => 'sites/all/modules/contrib/devel/devel_krumo.js',
+    5 => 'sites/all/modules/contrib/adminimal_admin_menu/js/jquery.min.js',
+    6 => 'sites/all/modules/contrib/adminimal_admin_menu/js/slicknav/jquery-no-conflict.slicknav.js',
+    7 => 'sites/all/modules/contrib/adminimal_admin_menu/js/adminimal_admin_menu.js',
+    8 => 'modules/contextual/contextual.js',
+    9 => 'sites/all/modules/contrib/views/js/views-contextual.js',
+    10 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
+    11 => 'sites/all/themes/adminimal_theme/js/jRespond.js',
+    12 => 'sites/all/themes/adminimal_theme/js/adminimal_theme.js',
+    13 => 'misc/form.js',
+    14 => 'misc/textarea.js',
     15 => 'misc/collapse.js',
-    16 => 'misc/machine-name.js',
-    17 => 'misc/autocomplete.js',
-    18 => 'misc/jquery.cookie.js',
-    19 => 'misc/jquery.form.js',
-    20 => 'misc/progress.js',
-    21 => 'misc/ajax.js',
-    22 => 'misc/ui/jquery.ui.core.min.js',
-    23 => 'misc/ui/jquery.ui.widget.min.js',
-    24 => 'misc/ui/jquery.ui.button.min.js',
-    25 => 'misc/ui/jquery.ui.mouse.min.js',
-    26 => 'misc/ui/jquery.ui.draggable.min.js',
-    27 => 'misc/ui/jquery.ui.position.min.js',
-    28 => 'misc/ui/jquery.ui.resizable.min.js',
-    29 => 'misc/ui/jquery.ui.dialog.min.js',
-    30 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
-    31 => 'sites/all/modules/contrib/views/js/base.js',
-    32 => 'sites/all/modules/contrib/views/js/ajax_view.js',
-    33 => 'sites/all/modules/contrib/views_bulk_operations/js/views_bulk_operations.js',
-    34 => 'modules/file/file.js',
-    35 => 'misc/states.js',
-    36 => 'misc/textarea.js',
-    37 => 'modules/node/node.js',
-    38 => 'modules/comment/comment-node-form.js',
-    39 => 'sites/all/modules/contrib/pathauto/pathauto.js',
-    40 => 'modules/block/block.js',
-    41 => 'misc/tabledrag.js',
-    42 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
-    43 => 'modules/filter/filter.js',
-    44 => 'sites/all/themes/mmchoeur/build/all.js',
-    45 => 'modules/contextual/contextual.js',
-    46 => 'sites/all/modules/contrib/ctools/js/dropbutton.js',
-    47 => 'sites/all/modules/contrib/module_filter/js/module_filter.js',
-    48 => 'misc/jquery.ba-bbq.js',
-    49 => 'sites/all/modules/contrib/module_filter/js/modules.js',
-    50 => 'sites/all/modules/contrib/module_filter/js/module_filter_tab.js',
-    51 => 'sites/all/modules/contrib/module_filter/js/dynamic_position.js',
-    52 => 'sites/all/modules/contrib/token/token.js',
-    53 => 'misc/batch.js',
+    16 => 'misc/vertical-tabs.js',
+    17 => 'modules/block/block.js',
+    18 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
+    19 => 'misc/tableheader.js',
+    20 => 'misc/jquery.cookie.js',
+    21 => 'misc/tabledrag.js',
+    22 => 'sites/all/modules/contrib/webform/js/webform.js',
+    23 => 'sites/all/modules/contrib/features/features.js',
+    24 => 'misc/machine-name.js',
+    25 => 'misc/autocomplete.js',
+    26 => 'misc/jquery.form.js',
+    27 => 'misc/progress.js',
+    28 => 'misc/ajax.js',
+    29 => 'misc/ui/jquery.ui.core.min.js',
+    30 => 'misc/ui/jquery.ui.widget.min.js',
+    31 => 'misc/ui/jquery.ui.button.min.js',
+    32 => 'misc/ui/jquery.ui.mouse.min.js',
+    33 => 'misc/ui/jquery.ui.draggable.min.js',
+    34 => 'misc/ui/jquery.ui.position.min.js',
+    35 => 'misc/ui/jquery.ui.resizable.min.js',
+    36 => 'misc/ui/jquery.ui.dialog.min.js',
+    37 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
@@ -792,7 +780,7 @@ function configuration_strongarm() {
     'domain' => '',
     'prefix' => 'fr',
     'weight' => '0',
-    'javascript' => 'nlWYk7Js8zc4JVH7b6R25aUMRkd5RdR6iUM-cdEtvcA',
+    'javascript' => 'VN6Av9fFrF5akINNpKHPNGM8FwiJTJH1cij06d62z5Q',
   );
   $export['language_default'] = $strongarm;
 
@@ -854,7 +842,9 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_expanded';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
   $export['menu_expanded'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -911,10 +901,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'module_filter_recent_modules';
-  $strongarm->value = array(
-    'fe_block' => 1529432737,
-    'rh_node' => 1529433813,
-  );
+  $strongarm->value = array();
   $export['module_filter_recent_modules'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1190,7 +1177,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1530118498;
+  $strongarm->value = 1530967208;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();

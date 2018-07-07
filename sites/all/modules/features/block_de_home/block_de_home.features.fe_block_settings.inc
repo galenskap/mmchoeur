@@ -74,8 +74,8 @@ function block_de_home_default_fe_block_settings() {
         'weight' => 0,
       ),
       'mmchoeur' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'mmchoeur',
         'weight' => 0,
       ),
