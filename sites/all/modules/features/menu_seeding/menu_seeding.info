@@ -1,8 +1,16 @@
 name = Menu
 core = 7.x
 package = Général
+dependencies[] = fe_block
 dependencies[] = features
 dependencies[] = menu
+features[fe_block_settings][] = menu-menu-footer-menu
 features[features_api][] = api:2
 features[menu_custom][] = main-menu
 features[menu_custom][] = menu-footer-menu
+features[menu_links][] = main-menu_accueil:<front>
+features[menu_links][] = main-menu_chef-de-choeur:node/2
+features[menu_links][] = main-menu_contact:node/11
+features[menu_links][] = main-menu_la-chorale:node/1
+features[menu_links][] = main-menu_notre-chorale:node/1
+features[menu_links][] = main-menu_recrutement:node/3
