@@ -1115,6 +1115,7 @@ function roles_et_permissions_user_default_permissions() {
   $permissions['view any chanson content'] = array(
     'name' => 'view any chanson content',
     'roles' => array(
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node_view_permissions',

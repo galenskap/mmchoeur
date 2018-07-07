@@ -28,3 +28,15 @@ function mmc_tools_youtube_player($url, $width = null, $height = null)
              </iframe>';
   return $player;
 }
+
+/**
+ * Restrict node acces by role
+ * @param $node
+ * @param $op
+ * @param $account
+ */
+function mmc_tools_node_access($node, $op, $account){
+    if($node->type == 'chanson' && $op == 'view' && $account->uid == 0) {
+        drupal_goto('/');
+    }
+}
