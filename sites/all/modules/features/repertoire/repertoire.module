@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Repertoire feature.
+ */
+
+include_once 'repertoire.features.inc';
