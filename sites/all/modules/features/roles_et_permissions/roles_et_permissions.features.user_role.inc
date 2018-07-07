@@ -16,5 +16,11 @@ function roles_et_permissions_user_default_roles() {
     'weight' => 2,
   );
 
+  // Exported role: editeur.
+  $roles['editeur'] = array(
+    'name' => 'editeur',
+    'weight' => 3,
+  );
+
   return $roles;
 }
