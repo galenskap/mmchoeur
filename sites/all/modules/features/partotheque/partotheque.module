@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Partotheque feature.
+ */
+
+include_once 'partotheque.features.inc';
