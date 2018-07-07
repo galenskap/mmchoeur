@@ -1,5 +1,5 @@
 <footer id="footer" class="footer wrapper">
-  <div class="container flex-container">
+  <div class="container">
     <?php if ($page['footer_firstcolumn']): ?>
         <?php print render($page['footer_firstcolumn']); ?>
     <?php endif; ?>

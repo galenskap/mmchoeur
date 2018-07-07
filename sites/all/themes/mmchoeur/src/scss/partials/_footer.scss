@@ -1,3 +1,14 @@
-footer {
+#footer {
   background: $darkbackground;
+  padding: 1rem 0;
+
+  .menu {
+    @extend %flex-container;
+    justify-content: flex-end;
+    color: $lightfont;
+    font-size: 0.8rem;
+    li {
+      list-style: none;
+    }
+  }
 }

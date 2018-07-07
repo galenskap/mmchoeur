@@ -39,6 +39,7 @@ a {
 
 .main-wrapper {
   background: $lightbackground;
+  padding: 2rem 0;
 }
 
 
@@ -50,4 +51,19 @@ a {
   a {
     color: $primary;
   }
+}
+
+
+// ------- NODES -------
+
+// TYPE PAGES
+.node-type-page .node-page .content {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+// TYPE WEBFORMS
+.node-type-webform .node-webform .content {
+  max-width: 420px;
+  margin: auto;
 }
