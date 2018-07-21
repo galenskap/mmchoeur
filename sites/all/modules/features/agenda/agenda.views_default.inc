@@ -134,6 +134,7 @@ function agenda_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
@@ -142,6 +143,9 @@ function agenda_views_default_views() {
   $handler->display->display_options['fields']['field_adresse']['table'] = 'field_data_field_adresse';
   $handler->display->display_options['fields']['field_adresse']['field'] = 'field_adresse';
   $handler->display->display_options['fields']['field_adresse']['label'] = '';
+  $handler->display->display_options['fields']['field_adresse']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_adresse']['alter']['text'] = '<div class="event-title h3">[title]</div>
+<div class="address">[field_adresse]</div>';
   $handler->display->display_options['fields']['field_adresse']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_adresse']['hide_empty'] = TRUE;
   /* Champ: Contenu: Body */
@@ -179,6 +183,8 @@ function agenda_views_default_views() {
     t('Home - agenda'),
     t('Home - Agenda'),
     t('Tout l\'agenda'),
+    t('<div class="event-title h3">[title]</div>
+<div class="address">[field_adresse]</div>'),
   );
   $export['agenda'] = $view;
 
