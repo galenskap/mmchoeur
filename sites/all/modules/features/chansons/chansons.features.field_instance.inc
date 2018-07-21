@@ -101,7 +101,7 @@ function chansons_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'fichiers-piano',
-      'file_extensions' => 'mid mp3 mp4 wav',
+      'file_extensions' => 'mid mp3 mp4 wav m4a',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -169,7 +169,7 @@ function chansons_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'fichiers-enregistrements',
-      'file_extensions' => 'mid wav mp3 mp4',
+      'file_extensions' => 'mid wav mp3 mp4 m4a',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
