@@ -41,6 +41,14 @@ function espace_choristes_views_default_views() {
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Entête: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h2>Nouveautés</h2>
+<p>Voici les dernières modifications qui ont été apportées au site web.</p>
+<p>Vous devez être connecté(e) pour avoir accès au détail des partitions, pages et événements privés.</p>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Champ: Contenu: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
@@ -112,6 +120,9 @@ function espace_choristes_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('<h2>Nouveautés</h2>
+<p>Voici les dernières modifications qui ont été apportées au site web.</p>
+<p>Vous devez être connecté(e) pour avoir accès au détail des partitions, pages et événements privés.</p>'),
     t('Mis à jour'),
     t('Page'),
   );

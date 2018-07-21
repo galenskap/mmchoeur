@@ -1,0 +1,18 @@
+#user-login-form {
+  input {
+    width: 100%;
+  }
+  input[type="submit"] {
+    @extend %primary-button;
+    border: 0;
+    width: auto;
+    float: right;
+  }
+  .item-list li {
+    list-style-type: none;
+    margin: -1em 0 0;
+    a {
+      font-size: 0.8em;
+    }
+  }
+}

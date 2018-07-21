@@ -1,0 +1,38 @@
+.page-espace-choriste {
+  #main-content { width: 100%; }
+  #main-content .region-content {
+    @extend %flex-container;
+    justify-content: space-between;
+    margin: 1rem 0 2rem;
+  }
+  #block-system-main {
+    min-width: 60%;
+    padding-right: 3rem;
+  }
+  #block-system-user-menu,
+  #block-user-login {
+    min-width: 40%;
+  }
+
+  .view-header {
+    margin: 1rem 0 3rem;
+  }
+
+  .revision-date {
+    font-size: 1.2rem;
+    margin-top: 2em 0 0.5em;
+  }
+  .revision-date:first-of-type { margin-top: 1em; }
+
+  .views-field-type {
+    float: left;
+  }
+  .type-tag {
+    background: $primary;
+    color: white;
+    border-radius: 2px;
+    padding: 0 0.5em;
+    font-size: 0.8em;
+    margin-right: 0.5em;
+  }
+}

@@ -21,5 +21,3 @@ features[menu_links][] = main-menu_notre-chorale:node/1
 features[menu_links][] = main-menu_partothque:partotheque
 features[menu_links][] = main-menu_recrutement:node/3
 features[menu_links][] = main-menu_rpertoire:repertoire
-features[menu_links][] = user-menu_log-out:user/logout
-features[menu_links][] = user-menu_user-account:user

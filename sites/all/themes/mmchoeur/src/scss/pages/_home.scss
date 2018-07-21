@@ -70,6 +70,17 @@
   margin-top: 2rem;
 }
 
+.region-home-bottom {
+  .block-views {
+    min-width: 60%;
+    padding-right: 3rem;
+  }
+  .block-user,
+  .block-menu {
+    min-width: 40%;
+  }
+}
+
 // Pour cause d'alternance entre les blocs, le footer doit changer de couleur sur la home seulement
 .front #footer {
   background: $lightbackground;

@@ -59,6 +59,7 @@ header {
     ul.menu {
       max-height: 0;
       transition: max-height .3s ease-out;
+      width: 100%;
       overflow: hidden;
       background: $lightbackground;
       position: absolute;

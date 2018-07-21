@@ -125,7 +125,7 @@ function menu_seeding_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Choristes',
+    'title' => 'Vous êtes connecté(e)',
     'visibility' => 0,
   );
 
