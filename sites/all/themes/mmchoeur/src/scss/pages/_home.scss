@@ -24,6 +24,34 @@
 .region-home-bottom {
   @extend %flex-container;
 }
+.homezone.higher-central {
+  .edito {
+    min-width: 60%;
+    padding-right: 3rem;
+    .know-more {
+      float: right;
+      margin: 1rem 0 2rem;
+    }
+  }
+  .agenda {
+    min-width: 40%;
+    .views-row {
+      @extend %flex-container;
+    }
+    .event-title a {
+      color: $darkfont;
+      text-decoration: none;
+    }
+    .address {
+      font-size: 0.9em;
+      color: $lightfont;
+    }
+  }
+  .more-link a {
+    @extend %primary-button;
+    margin: 2rem 0;
+  }
+}
 #block-views-home-videos-block .view-content {
   @extend %flex-container;
   justify-content: space-between;
