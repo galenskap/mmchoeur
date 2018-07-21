@@ -311,6 +311,127 @@ function seeding_node_export_features_default() {
       \'vuuid\' => \'d1c72ca5-4f51-4a9c-832d-2dbdd3fb0839\',
     ),
   (object) array(
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<p>La chorale Music\'M Choeur sera présente à la journée des associations de la ville. N\'hésitez pas à passer sur notre stand pour glaner des renseignements et poser vos questions !</p>\\r\\n\\r\\n<p>Choristes habitués, venez nombreux pour présenter notre chorale à de potentielles recrues :)</p>\\r\\n\\r\\n<p>Plus de renseignements sur l\'<a href=\\"https://www.saint-maur.com/actualites.html\\" rel=\\"nofollow\\" target=\\"_blank\\">agenda de la ville de Saint-Maur des Fossés</a></p>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'filtered_html\',
+            \'safe_value\' => "<p>La chorale Music\'M Choeur sera présente à la journée des associations de la ville. N\'hésitez pas à passer sur notre stand pour glaner des renseignements et poser vos questions !</p>\\n<p>Choristes habitués, venez nombreux pour présenter notre chorale à de potentielles recrues :)</p>\\n<p>Plus de renseignements sur l\'<a href=\\"https://www.saint-maur.com/actualites.html\\" rel=\\"nofollow\\" target=\\"_blank\\">agenda de la ville de Saint-Maur des Fossés</a></p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'changed\' => NULL,
+      \'cid\' => \'0\',
+      \'comment\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'created\' => NULL,
+      \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
+      \'field_adresse\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \' Place des Marronniers, 94100 Saint-Maur-des-Fossés \',
+            \'format\' => NULL,
+            \'safe_value\' => \' Place des Marronniers, 94100 Saint-Maur-des-Fossés \',
+          ),
+        ),
+      ),
+      \'field_date_agenda\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'2018-09-09 09:00:00\',
+            \'timezone\' => \'Europe/Berlin\',
+            \'timezone_db\' => \'UTC\',
+            \'date_type\' => \'datetime\',
+          ),
+        ),
+      ),
+      \'files\' => array(),
+      \'language\' => \'fr\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_timestamp\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'log\' => \'\',
+      \'menu\' => NULL,
+      \'name\' => \'admincw\',
+      \'nid\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+      \'path\' => NULL,
+      \'picture\' => \'0\',
+      \'promote\' => \'0\',
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'revision_timestamp\' => NULL,
+      \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
+      \'status\' => \'1\',
+      \'sticky\' => \'0\',
+      \'title\' => \'Journée des associations\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'type\' => \'evenement\',
+      \'uid\' => \'1\',
+      \'uuid\' => \'3cb61ca3-af0e-4650-ad38-1a48fda51767\',
+      \'vid\' => NULL,
+      \'vuuid\' => \'038aa10b-0143-4d96-adbf-ce4f005cf513\',
+    ),
+  (object) array(
       \'changed\' => NULL,
       \'cid\' => \'0\',
       \'comment\' => \'1\',
@@ -649,9 +770,9 @@ function seeding_node_export_features_default() {
         \'block\' => \'0\',
         \'allow_draft\' => \'0\',
         \'auto_save\' => \'0\',
-        \'submit_notice\' => \'1\',
+        \'submit_notice\' => \'0\',
         \'confidential\' => \'0\',
-        \'submit_text\' => \'\',
+        \'submit_text\' => \'Envoyer\',
         \'submit_limit\' => \'-1\',
         \'submit_interval\' => \'-1\',
         \'total_submit_limit\' => \'-1\',

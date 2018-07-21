@@ -33,6 +33,23 @@ function menu_seeding_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
+  // Exported menu link: main-menu_agenda:agenda.
+  $menu_links['main-menu_agenda:agenda'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'agenda',
+    'router_path' => 'agenda',
+    'link_title' => 'Agenda',
+    'options' => array(
+      'identifier' => 'main-menu_agenda:agenda',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_chef-de-choeur:node/2.
   $menu_links['main-menu_chef-de-choeur:node/2'] = array(
     'menu_name' => 'main-menu',
@@ -77,7 +94,7 @@ function menu_seeding_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: main-menu_la-chorale:node/1.
@@ -155,6 +172,7 @@ function menu_seeding_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Accueil');
+  t('Agenda');
   t('Chef de choeur');
   t('Contact');
   t('La chorale');
