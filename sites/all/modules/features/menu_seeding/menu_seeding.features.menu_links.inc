@@ -47,7 +47,7 @@ function menu_seeding_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: main-menu_chef-de-choeur:node/2.
@@ -94,7 +94,7 @@ function menu_seeding_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -46,
     'customized' => 1,
   );
   // Exported menu link: main-menu_la-chorale:node/1.
@@ -168,6 +168,23 @@ function menu_seeding_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_la-chorale:node/1',
   );
+  // Exported menu link: main-menu_rpertoire:repertoire.
+  $menu_links['main-menu_rpertoire:repertoire'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'repertoire',
+    'router_path' => 'repertoire',
+    'link_title' => 'Répertoire',
+    'options' => array(
+      'identifier' => 'main-menu_rpertoire:repertoire',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -178,6 +195,7 @@ function menu_seeding_menu_default_menu_links() {
   t('La chorale');
   t('Notre chorale');
   t('Recrutement');
+  t('Répertoire');
 
   return $menu_links;
 }

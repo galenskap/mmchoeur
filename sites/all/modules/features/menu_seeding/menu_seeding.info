@@ -15,3 +15,4 @@ features[menu_links][] = main-menu_contact:node/11
 features[menu_links][] = main-menu_la-chorale:node/1
 features[menu_links][] = main-menu_notre-chorale:node/1
 features[menu_links][] = main-menu_recrutement:node/3
+features[menu_links][] = main-menu_rpertoire:repertoire

@@ -91,7 +91,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'pc7unj';
+  $strongarm->value = 'pc7y4q';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -296,7 +296,7 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => '9cd799c9535d8689b64ba2d6965ec69f',
+      'variable' => 'c58dcebe57e4541775ef16fe44de220e',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
@@ -322,8 +322,8 @@ function configuration_strongarm() {
       'node' => '3796aa26ccb5c0461da34186b2455d05',
       'variable' => '536afa2e7d9a636a81beb0b9841594b4',
       'field_base' => 'e3cfb3c9b1c2fc2f018bf0330b811a43',
-      'field_instance' => 'f042fe0eeb987057abc3b9d08bb26353',
-      'dependencies' => '7873781d1cc50dd3cf65a155ce86c919',
+      'field_instance' => '31a5c6537a4711a304e10d97805bbeb3',
+      'dependencies' => 'a3074f21f47940513843afbde77ab748',
     ),
     'slider' => array(
       'node' => '54940451e55c6b7e2d2be073094f71ea',
@@ -341,19 +341,19 @@ function configuration_strongarm() {
       'dependencies' => 'ca842a063138778144ff74a681179c53',
     ),
     'block_de_home' => array(
-      'fe_block_boxes' => '36dbab6d38f2e7b838cbd2617e520bc6',
-      'fe_block_settings' => 'cbf732e71ea6ffc5206383e034ef5900',
-      'dependencies' => 'a8ef601e427a70b3da29a93728ffa24b',
+      'fe_block_boxes' => '1e618a9c26b6ce4a78ba34d656df8c01',
+      'fe_block_settings' => '44b0fca7d012e9f980724293e6ea33e4',
+      'dependencies' => 'ab820555367bfb55d9833cd00668f1f6',
     ),
     'menu_seeding' => array(
       'menu_custom' => '307f4b146b734e12fbe63c088e109fcb',
       'dependencies' => '90a963344c5a24d4f52dbc7ec6dcc304',
       'fe_block_settings' => 'df977617999e116cc0e5bb0ab79d61f9',
-      'menu_links' => 'fb0f411518d0a8c7cbfc5886dacf9b8c',
+      'menu_links' => 'a8792a693fe79e119e3c93dbd451d81b',
     ),
     'seeding' => array(
-      'node_export_features' => '5999f01b32b34aa0e8a42db0b3a7a0ef',
-      'dependencies' => '61194bf0aecf3b61824e8fea12650459',
+      'node_export_features' => '0a6d19d67916565610b3362f95947f4f',
+      'dependencies' => 'e1321dac2cc31008a382ee292346ac5c',
       'node' => 'e2e5ff80c955b21b0e3309b7952f73ac',
     ),
     'vues_de_home' => array(
@@ -374,6 +374,9 @@ function configuration_strongarm() {
       'field_base' => '155b6ab911f5f6b20c12997bb31bdf3b',
       'field_instance' => '6b75e43729a8ef25a7b6bb44d8fdbc89',
       'dependencies' => 'e1ca0b21205135f91f20111efe29c548',
+    ),
+    'agenda' => array(
+      'dependencies' => '242d389f813a156ec0b8c564d5aff0c6',
     ),
   );
   $export['features_codecache'] = $strongarm;
@@ -725,14 +728,14 @@ function configuration_strongarm() {
     12 => 'misc/vertical-tabs.js',
     13 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
     14 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
-    15 => 'misc/ui/jquery.ui.core.min.js',
-    16 => 'misc/progress.js',
-    17 => 'misc/ajax.js',
-    18 => 'misc/collapse.js',
-    19 => 'misc/machine-name.js',
-    20 => 'misc/autocomplete.js',
-    21 => 'misc/jquery.cookie.js',
-    22 => 'misc/jquery.form.js',
+    15 => 'misc/collapse.js',
+    16 => 'misc/machine-name.js',
+    17 => 'misc/autocomplete.js',
+    18 => 'misc/jquery.cookie.js',
+    19 => 'misc/jquery.form.js',
+    20 => 'misc/progress.js',
+    21 => 'misc/ajax.js',
+    22 => 'misc/ui/jquery.ui.core.min.js',
     23 => 'misc/ui/jquery.ui.widget.min.js',
     24 => 'misc/ui/jquery.ui.button.min.js',
     25 => 'misc/ui/jquery.ui.mouse.min.js',
@@ -741,6 +744,31 @@ function configuration_strongarm() {
     28 => 'misc/ui/jquery.ui.resizable.min.js',
     29 => 'misc/ui/jquery.ui.dialog.min.js',
     30 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
+    31 => 'sites/all/themes/mmchoeur/build/all.js',
+    32 => 'sites/all/modules/contrib/ctools/js/dependent.js',
+    33 => 'misc/textarea.js',
+    34 => 'sites/all/modules/contrib/views/js/base.js',
+    35 => 'sites/all/modules/contrib/views/js/ajax.js',
+    36 => 'sites/all/modules/contrib/ctools/js/dropbutton.js',
+    37 => 'modules/contextual/contextual.js',
+    38 => 'misc/ui/jquery.ui.tabs.min.js',
+    39 => 'sites/all/modules/contrib/ctools/js/collapsible-div.js',
+    40 => 'misc/tabledrag.js',
+    41 => 'sites/all/modules/contrib/views/js/views-admin.js',
+    42 => 'sites/all/modules/contrib/webform/js/webform.js',
+    43 => 'sites/all/modules/contrib/views/js/views-contextual.js',
+    44 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
+    45 => 'modules/filter/filter.js',
+    46 => 'modules/file/file.js',
+    47 => 'misc/states.js',
+    48 => 'sites/all/modules/contrib/pathauto/pathauto.js',
+    49 => 'modules/node/node.js',
+    50 => 'modules/comment/comment-node-form.js',
+    51 => 'modules/field_ui/field_ui.js',
+    52 => 'sites/all/modules/contrib/field_group/field_group.field_ui.js',
+    53 => 'sites/all/modules/contrib/token/token.js',
+    54 => 'modules/taxonomy/taxonomy.js',
+    55 => 'modules/block/block.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
