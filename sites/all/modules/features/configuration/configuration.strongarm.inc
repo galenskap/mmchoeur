@@ -84,14 +84,14 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1532175981;
+  $strongarm->value = 1532186993;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'pc7y4q';
+  $strongarm->value = 'pc848b';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -296,7 +296,7 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => 'c58dcebe57e4541775ef16fe44de220e',
+      'variable' => '4e1b8737766745b2c53f931f2eb7eedb',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
@@ -342,31 +342,32 @@ function configuration_strongarm() {
     ),
     'block_de_home' => array(
       'fe_block_boxes' => '1e618a9c26b6ce4a78ba34d656df8c01',
-      'fe_block_settings' => '44b0fca7d012e9f980724293e6ea33e4',
+      'fe_block_settings' => 'f61d7ec98c0d47a8c84a342ffcd307e4',
       'dependencies' => 'ab820555367bfb55d9833cd00668f1f6',
     ),
     'menu_seeding' => array(
-      'menu_custom' => '307f4b146b734e12fbe63c088e109fcb',
+      'menu_custom' => 'f15189ea1af8e55c86b058b96c2c76bb',
       'dependencies' => '90a963344c5a24d4f52dbc7ec6dcc304',
-      'fe_block_settings' => 'df977617999e116cc0e5bb0ab79d61f9',
-      'menu_links' => 'a8792a693fe79e119e3c93dbd451d81b',
+      'fe_block_settings' => '0230c540b23539e8a6b19074f701c2d8',
+      'menu_links' => '12ad129df5d79147284b839d9ef84dbf',
     ),
     'seeding' => array(
-      'node_export_features' => '0a6d19d67916565610b3362f95947f4f',
+      'node_export_features' => '5f6669a7648fbb07868dc0d0677251fa',
       'dependencies' => 'e1321dac2cc31008a382ee292346ac5c',
       'node' => 'e2e5ff80c955b21b0e3309b7952f73ac',
     ),
     'vues_de_home' => array(
-      'dependencies' => 'f334ac27b969221f20f7aa53080cd124',
+      'dependencies' => 'bf55b837b8230c14617afe2ba379886f',
       'views_view' => '53861f1104f2f1fceccea77483255983',
+      'fe_block_settings' => 'cd3b5c6eb4ab594dbb4f1f01ad49c386',
     ),
     'partotheque' => array(
       'dependencies' => 'f334ac27b969221f20f7aa53080cd124',
-      'views_view' => '45a37b790dcd3d4fb56c797ac84119b2',
+      'views_view' => '6c5e194b66fe4c5da7fe2abdf36e826f',
     ),
     'repertoire' => array(
       'dependencies' => '242d389f813a156ec0b8c564d5aff0c6',
-      'views_view' => 'ff471d58be24813c5521fa3a83d32e11',
+      'views_view' => '4c4311607ee4de7f1be51a4548b88150',
     ),
     'evenements' => array(
       'node' => '9e0c58ea44a7cb142d89109cf386f318',
@@ -376,6 +377,9 @@ function configuration_strongarm() {
       'dependencies' => 'e1ca0b21205135f91f20111efe29c548',
     ),
     'agenda' => array(
+      'dependencies' => '242d389f813a156ec0b8c564d5aff0c6',
+    ),
+    'espace_choristes' => array(
       'dependencies' => '242d389f813a156ec0b8c564d5aff0c6',
     ),
   );
@@ -745,30 +749,25 @@ function configuration_strongarm() {
     29 => 'misc/ui/jquery.ui.dialog.min.js',
     30 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
     31 => 'sites/all/themes/mmchoeur/build/all.js',
-    32 => 'sites/all/modules/contrib/ctools/js/dependent.js',
-    33 => 'misc/textarea.js',
-    34 => 'sites/all/modules/contrib/views/js/base.js',
-    35 => 'sites/all/modules/contrib/views/js/ajax.js',
-    36 => 'sites/all/modules/contrib/ctools/js/dropbutton.js',
-    37 => 'modules/contextual/contextual.js',
-    38 => 'misc/ui/jquery.ui.tabs.min.js',
-    39 => 'sites/all/modules/contrib/ctools/js/collapsible-div.js',
-    40 => 'misc/tabledrag.js',
-    41 => 'sites/all/modules/contrib/views/js/views-admin.js',
-    42 => 'sites/all/modules/contrib/webform/js/webform.js',
-    43 => 'sites/all/modules/contrib/views/js/views-contextual.js',
-    44 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
-    45 => 'modules/filter/filter.js',
-    46 => 'modules/file/file.js',
-    47 => 'misc/states.js',
-    48 => 'sites/all/modules/contrib/pathauto/pathauto.js',
-    49 => 'modules/node/node.js',
-    50 => 'modules/comment/comment-node-form.js',
-    51 => 'modules/field_ui/field_ui.js',
-    52 => 'sites/all/modules/contrib/field_group/field_group.field_ui.js',
-    53 => 'sites/all/modules/contrib/token/token.js',
-    54 => 'modules/taxonomy/taxonomy.js',
-    55 => 'modules/block/block.js',
+    32 => 'modules/contextual/contextual.js',
+    33 => 'modules/user/user.js',
+    34 => 'misc/textarea.js',
+    35 => 'misc/states.js',
+    36 => 'sites/all/modules/contrib/token/token.js',
+    37 => 'modules/field_ui/field_ui.js',
+    38 => 'sites/all/modules/contrib/field_group/field_group.field_ui.js',
+    39 => 'misc/tabledrag.js',
+    40 => 'sites/all/modules/contrib/module_filter/js/module_filter.js',
+    41 => 'sites/all/modules/contrib/module_filter/js/permissions.js',
+    42 => 'modules/user/user.permissions.js',
+    43 => 'sites/all/modules/contrib/admin_menu/admin_menu.admin.js',
+    44 => 'misc/ui/jquery.ui.sortable.min.js',
+    45 => 'modules/dashboard/dashboard.js',
+    46 => 'sites/all/modules/contrib/ctools/js/dropbutton.js',
+    47 => 'misc/jquery.ba-bbq.js',
+    48 => 'sites/all/modules/contrib/module_filter/js/modules.js',
+    49 => 'sites/all/modules/contrib/module_filter/js/module_filter_tab.js',
+    50 => 'sites/all/modules/contrib/module_filter/js/dynamic_position.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
@@ -815,7 +814,7 @@ function configuration_strongarm() {
     'domain' => '',
     'prefix' => 'fr',
     'weight' => '0',
-    'javascript' => 'VN6Av9fFrF5akINNpKHPNGM8FwiJTJH1cij06d62z5Q',
+    'javascript' => 'GGoaBq5lzbJKhhO8ZKhCEuKyCNQM00B9XvKXr852YGo',
   );
   $export['language_default'] = $strongarm;
 
@@ -950,7 +949,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_cron_last';
-  $strongarm->value = '1530972452';
+  $strongarm->value = '1532184063';
   $export['node_cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1102,6 +1101,7 @@ function configuration_strongarm() {
   $strongarm->value = array(
     'node' => TRUE,
     'taxonomy' => TRUE,
+    'user' => TRUE,
   );
   $export['path_alias_whitelist'] = $strongarm;
 
@@ -1212,7 +1212,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1532175987;
+  $strongarm->value = 1532186994;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1249,7 +1249,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_pictures';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['user_pictures'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1277,7 +1277,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_register';
-  $strongarm->value = 2;
+  $strongarm->value = '0';
   $export['user_register'] = $strongarm;
 
   $strongarm = new stdClass();

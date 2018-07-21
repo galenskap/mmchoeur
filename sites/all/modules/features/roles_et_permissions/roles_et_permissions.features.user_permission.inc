@@ -698,6 +698,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'delete revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -996,6 +997,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'revert revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );
@@ -1172,6 +1174,7 @@ function roles_et_permissions_user_default_permissions() {
     'name' => 'view revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'editeur' => 'editeur',
     ),
     'module' => 'node',
   );

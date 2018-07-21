@@ -105,12 +105,18 @@ function menu_seeding_menu_default_menu_links() {
     'link_title' => 'Espace choristes',
     'options' => array(
       'identifier' => 'main-menu_espace-choristes:espace-choriste',
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
     ),
     'module' => 'system',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 1,
-    'expanded' => 0,
+    'expanded' => 1,
     'weight' => -46,
     'customized' => 1,
   );
