@@ -92,7 +92,9 @@
       </div>
 
       <?php if (isset($node->field_paroles['und'])): ?>
-        <?php echo $node->field_paroles['und'][0]['value'] ?>
+        <div class="lyrics">
+          <?php echo $node->field_paroles['und'][0]['value'] ?>
+        </div>
       <?php endif; ?>
     </div>
 
@@ -104,55 +106,32 @@
       </h2>
 
       <?php if (isset($node->field_partitions['und'])): ?>
-        <h3><?php echo t('Partitions') ?></h3>
-        <?php
-        foreach ($node->field_partitions['und'] as $pid):
-          $partition = field_collection_item_load($pid['value'], true);
-          $term = taxonomy_term_load($partition->field_pupitre['und'][0]['tid']);
-        ?>
-          <h4 class="h4"><?php echo $term->name ?></h4>
-          <ul>
-            <?php foreach ($partition->field_documents['und'] as $doc):
-              $name = (!empty($doc['description'])) ? $doc['description'] : $doc['filename'];
-              ?>
-              <li>
-                <a href="<?php echo file_create_url($doc['uri']) ?>"><?php echo $name ?></a>
-              </li>
-            <?php endforeach; ?>
-          </ul>
-        <?php endforeach; ?>
-      <?php endif; ?>
-
-      <?php if (isset($node->field_piano['und'])): ?>
-        <h3 class="h3"><?php echo t('Pianos') ?></h3>
-        <?php foreach ($node->field_piano['und'] as $pid):
-          $piano = field_collection_item_load($pid['value'], true);
-          $term = taxonomy_term_load($piano->field_pupitre['und'][0]['tid']);
+        <div class="part partitions">
+          <h3 class="h3"><?php echo t('Partitions') ?></h3>
+          <?php
+          foreach ($node->field_partitions['und'] as $pid):
+            $partition = field_collection_item_load($pid['value'], true);
+            $term = taxonomy_term_load($partition->field_pupitre['und'][0]['tid']);
           ?>
-          <h4 class="h4"><?php echo $term->name ?></h4>
-          <ul>
-            <?php foreach ($piano->field_fichiers['und'] as $file) {
-              $name = (!empty($file['description'])) ? $file['description'] : $file['filename'];
-              $type = explode('/', $file['filemime']);
-              $type = end($type);
-              ?>
-              <li>
-                <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo $type ?></span></a>
-                <?php if ($type != 'midi'): ?>
-                  <audio controls>
-                    <source src="<?php echo file_create_url($file['uri']) ?>" type="<?php echo $file['filemime'] ?>">
-                      Your browser does not support the audio element.
-                    </audio>
-                  <?php endif; ?>
+            <h4 class="h4"><?php echo $term->name ?></h4>
+            <ul>
+              <?php foreach ($partition->field_documents['und'] as $doc):
+                $name = (!empty($doc['description'])) ? $doc['description'] : $doc['filename'];
+                ?>
+                <li>
+                  <a href="<?php echo file_create_url($doc['uri']) ?>"><?php echo $name ?></a>
                 </li>
-              <?php  } ?>
+              <?php endforeach; ?>
             </ul>
           <?php endforeach; ?>
-        <?php endif; ?>
+        </div>
+      <?php endif; ?>
 
-        <?php if (isset($node->field_repetitions['und'])): ?>
-          <h3 class="h3"><?php echo t('Répétitions') ?></h3>
-          <?php foreach ($node->field_repetitions['und'] as $pid):
+
+      <?php if (isset($node->field_piano['und'])): ?>
+        <div class="part piano">
+          <h3 class="h3"><?php echo t('Piano seul') ?></h3>
+          <?php foreach ($node->field_piano['und'] as $pid):
             $piano = field_collection_item_load($pid['value'], true);
             $term = taxonomy_term_load($piano->field_pupitre['und'][0]['tid']);
             ?>
@@ -164,7 +143,7 @@
                 $type = end($type);
                 ?>
                 <li>
-                  <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo  $type ?></span></a>
+                  <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo $type ?></span></a>
                   <?php if ($type != 'midi'): ?>
                     <audio controls>
                       <source src="<?php echo file_create_url($file['uri']) ?>" type="<?php echo $file['filemime'] ?>">
@@ -175,7 +154,38 @@
                 <?php  } ?>
               </ul>
             <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+
+        <?php if (isset($node->field_repetitions['und'])): ?>
+          <div class="part repetitions">
+            <h3 class="h3"><?php echo t('Répétitions') ?></h3>
+            <?php foreach ($node->field_repetitions['und'] as $pid):
+              $piano = field_collection_item_load($pid['value'], true);
+              $term = taxonomy_term_load($piano->field_pupitre['und'][0]['tid']);
+              ?>
+              <h4 class="h4"><?php echo $term->name ?></h4>
+              <ul>
+                <?php foreach ($piano->field_fichiers['und'] as $file) {
+                  $name = (!empty($file['description'])) ? $file['description'] : $file['filename'];
+                  $type = explode('/', $file['filemime']);
+                  $type = end($type);
+                  ?>
+                  <li>
+                    <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo  $type ?></span></a>
+                    <?php if ($type != 'midi'): ?>
+                      <audio controls>
+                        <source src="<?php echo file_create_url($file['uri']) ?>" type="<?php echo $file['filemime'] ?>">
+                          Your browser does not support the audio element.
+                        </audio>
+                      <?php endif; ?>
+                    </li>
+                  <?php  } ?>
+                </ul>
+              <?php endforeach; ?>
+            </div>
           <?php endif; ?>
+
         </aside>
       </div>
 

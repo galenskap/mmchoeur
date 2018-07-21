@@ -1,3 +1,8 @@
+
+/*
+  === PAGE ACCUEIL ESPACE CHORISTE ===
+*/
+
 .page-espace-choriste {
   #main-content { width: 100%; }
   #main-content .region-content {
@@ -34,5 +39,41 @@
     padding: 0 0.5em;
     font-size: 0.8em;
     margin-right: 0.5em;
+  }
+}
+
+
+/*
+  === PAGE DETAIL CHANSON ===
+*/
+
+.node-type-chanson {
+  .node-chanson .content {
+    @extend %flex-container;
+  }
+  .main-col {
+    min-width: 60%;
+    padding-right: 3rem;
+  }
+  .side-col {
+    min-width: 40%;
+    background: $darkbackground;
+    padding: 0rem 2rem;
+  }
+  .headings {
+    font-family: $titlesfont;
+    color: $lightfont;
+    font-size: 1.5em;
+    margin: 1.2rem 0 3rem;
+  }
+  .lyrics {
+    font-size: 1.2em;
+  }
+  .part {
+    margin-top: 3rem;
+    border-top: 1px solid $lightbackground;
+  }
+  audio {
+    margin: 1rem auto;
   }
 }
