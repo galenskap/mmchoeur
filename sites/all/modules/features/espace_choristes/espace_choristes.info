@@ -1,0 +1,8 @@
+name = Espace choristes
+core = 7.x
+package = Vues
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = espace_choriste
+features_exclude[dependencies][ctools] = ctools

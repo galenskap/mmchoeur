@@ -74,8 +74,8 @@ function block_de_home_default_fe_block_settings() {
         'weight' => 0,
       ),
       'mmchoeur' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'home_bottom',
+        'status' => 1,
         'theme' => 'mmchoeur',
         'weight' => 0,
       ),
@@ -84,6 +84,45 @@ function block_de_home_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'seven',
         'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['user-login'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'login',
+    'module' => 'user',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'adminimal' => array(
+        'region' => 'hidden',
+        'status' => 1,
+        'theme' => 'adminimal',
+        'weight' => 0,
+      ),
+      'bartik' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'mmchoeur' => array(
+        'region' => 'home_bottom',
+        'status' => 1,
+        'theme' => 'mmchoeur',
+        'weight' => -13,
+      ),
+      'seven' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'seven',
+        'weight' => 10,
       ),
     ),
     'title' => '',

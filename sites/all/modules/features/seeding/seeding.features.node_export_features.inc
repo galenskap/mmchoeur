@@ -677,6 +677,148 @@ function seeding_node_export_features_default() {
       \'comment_count\' => \'0\',
       \'created\' => NULL,
       \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
+      \'field_auteur\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'Girolamo Frescobaldi\',
+            \'format\' => NULL,
+            \'safe_value\' => \'Girolamo Frescobaldi\',
+          ),
+        ),
+      ),
+      \'field_date\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'1630\',
+            \'format\' => NULL,
+            \'safe_value\' => \'1630\',
+          ),
+        ),
+      ),
+      \'field_paroles\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<p>Se l\'aura spira tutta vezzosa, la fresca rosa ridente sta<br />\\r\\nLa siepe ombrosa di bei smeraldi d\'estivi caldi timor non ha<br />\\r\\n<br />\\r\\nA balli, a balli, ninte gradite, fior di beltà<br />\\r\\nOr, che sì chiaro il vago fonte dall\'alto monte al mar sen\'va</p>\\r\\n",
+            \'format\' => \'filtered_html\',
+            \'safe_value\' => "<p>Se l\'aura spira tutta vezzosa, la fresca rosa ridente sta<br />\\nLa siepe ombrosa di bei smeraldi d\'estivi caldi timor non ha</p>\\n<p>A balli, a balli, ninte gradite, fior di beltà<br />\\nOr, che sì chiaro il vago fonte dall\'alto monte al mar sen\'va</p>\\n",
+          ),
+        ),
+      ),
+      \'field_partitions\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'1\',
+            \'revision_id\' => \'1\',
+          ),
+        ),
+      ),
+      \'field_piano\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'2\',
+            \'revision_id\' => \'2\',
+          ),
+        ),
+      ),
+      \'field_repetitions\' => array(),
+      \'field_saison\' => array(
+        \'und\' => array(
+          array(
+            \'tid\' => \'7\',
+          ),
+        ),
+      ),
+      \'files\' => array(),
+      \'language\' => \'fr\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_timestamp\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'log\' => \'\',
+      \'menu\' => NULL,
+      \'name\' => \'admincw\',
+      \'nid\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+      \'path\' => NULL,
+      \'picture\' => \'0\',
+      \'promote\' => \'0\',
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'revision_timestamp\' => NULL,
+      \'revision_uid\' => \'1\',
+      \'rh_action\' => NULL,
+      \'rh_redirect\' => NULL,
+      \'rh_redirect_response\' => NULL,
+      \'status\' => \'1\',
+      \'sticky\' => \'0\',
+      \'title\' => "Se l\'aura spira",
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'type\' => \'chanson\',
+      \'uid\' => \'1\',
+      \'uuid\' => \'655b4cab-c5fe-4bc6-ac46-08a6ed471aef\',
+      \'vid\' => NULL,
+      \'vuuid\' => \'6b0d8c2a-ba85-4f4a-81fa-43ef9d280d71\',
+    ),
+  (object) array(
+      \'changed\' => NULL,
+      \'cid\' => \'0\',
+      \'comment\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'created\' => NULL,
+      \'data\' => \'a:1:{s:7:"overlay";i:1;}\',
       \'files\' => array(),
       \'language\' => \'fr\',
       \'last_comment_name\' => NULL,

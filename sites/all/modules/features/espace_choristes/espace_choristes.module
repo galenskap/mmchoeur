@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Espace choristes feature.
+ */
+
+include_once 'espace_choristes.features.inc';

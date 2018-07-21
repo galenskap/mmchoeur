@@ -6,6 +6,7 @@ dependencies[] = views
 features[fe_block_boxes][] = edito
 features[fe_block_settings][] = block-edito
 features[fe_block_settings][] = system-navigation
+features[fe_block_settings][] = user-login
 features[fe_block_settings][] = views-agenda-block
 features[fe_block_settings][] = views-home_slider-block
 features[fe_block_settings][] = views-home_videos-block
