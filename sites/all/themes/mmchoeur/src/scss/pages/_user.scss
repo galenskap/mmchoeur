@@ -34,6 +34,7 @@
     ul {
       list-style-type: none;
       @extend %flex-container;
+      flex-wrap: wrap;
       align-items: baseline;
     }
     li {
