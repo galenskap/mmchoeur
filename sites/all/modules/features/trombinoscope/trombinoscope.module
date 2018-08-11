@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Trombinoscope feature.
+ */
+
+include_once 'trombinoscope.features.inc';
