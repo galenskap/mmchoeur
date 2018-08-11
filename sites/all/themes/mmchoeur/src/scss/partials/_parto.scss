@@ -14,3 +14,61 @@
 .type-icon[data-type="mpeg"] {
   background-color: $iconmpg;
 }
+
+.page-partotheque {
+  .main-wrapper {
+    border-top: inset 3rem $primary solid;
+  }
+  .view-filters {
+    background: $primary;
+    padding: 1rem 2rem;
+    input, select {
+      height: 3rem;
+    }
+    label {
+      color: #FFF;
+    }
+    .views-exposed-widgets{
+      display: flex;
+    }
+    .views-submit-button {
+      display: flex;
+      align-items:flex-end;
+    }
+    .form-submit {
+      @include button($iconmidi)
+    }
+  }
+  .view-content {
+    margin-top: 1rem;
+    ul {
+      list-style-type: none;
+    }
+    li {
+      padding: 1rem;
+      margin: 0;
+      display: flex;
+      .views-field-view-node {
+        width: 10%;
+        margin-left: 1rem;
+        a {
+          color: $primary;
+        }
+      }
+      .views-field-nothing {
+        margin:auto;
+        flex:1;
+      }
+      .field-content a {
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+    li:nth-child(odd){
+      background: #EEE;
+    }
+  }
+  .views-exposed-form .views-exposed-widget{
+    padding-top: 0;
+  }
+}

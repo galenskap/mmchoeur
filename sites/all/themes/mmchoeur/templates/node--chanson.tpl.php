@@ -115,13 +115,17 @@
           ?>
             <h4 class="h4"><?php echo $term->name ?></h4>
             <ul>
-              <?php foreach ($partition->field_documents['und'] as $doc):
-                $name = (!empty($doc['description'])) ? $doc['description'] : $doc['filename'];
-                ?>
-                <li>
-                  <a href="<?php echo file_create_url($doc['uri']) ?>"><?php echo $name ?></a>
-                </li>
-              <?php endforeach; ?>
+                <?php if ($partition->field_documents['und']): ?>
+                  <?php foreach ($partition->field_documents['und'] as $doc):
+                    $name = (!empty($doc['description'])) ? $doc['description'] : $doc['filename'];
+                    ?>
+                    <li>
+                      <a href="<?php echo file_create_url($doc['uri']) ?>"><?php echo $name ?></a>
+                    </li>
+                  <?php endforeach; ?>
+                    <?php else: ?>
+                    Pas de partitions pour l'instant
+                <?php endif; ?>
             </ul>
           <?php endforeach; ?>
         </div>

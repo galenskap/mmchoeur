@@ -12,7 +12,7 @@
       </div> <!-- end #sidebar-first -->
     <?php endif; ?>
 
-    <main id="main-content">
+    <main class="main-content" id="main-content">
       <?php if ($page['highlighted']): ?>
         <div id="highlighted" class="container highlighted">
           <?php print render($page['highlighted']); ?>

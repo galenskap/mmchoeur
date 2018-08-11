@@ -1,6 +1,6 @@
 {
   "styles": {
-    "input": "src\/scss\/*.scss",
+    "input": "src\/scss\/**\/*.scss",
     "output": ".\/build",
     "options": {
       "dev": {

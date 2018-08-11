@@ -47,7 +47,9 @@ a.primary:hover {
   @extend %primary-button;
 }
 
-
+.main-content {
+  width: 100%;
+}
 // STRUCTURE
 
 .container {
