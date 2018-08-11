@@ -16,3 +16,34 @@
     }
   }
 }
+
+
+
+/*
+  === PAGE TROMBINOSCOPE ===
+*/
+.page-trombinoscope {
+  .item-list {
+    margin-bottom: 3rem;
+    h3 {
+      font-size: 1.5em;
+      padding-bottom: 0.25em;
+      border-bottom: 3px solid $primary;
+      margin-bottom: 0.5em;
+    }
+    ul {
+      list-style-type: none;
+      @extend %flex-container;
+      align-items: baseline;
+    }
+    li {
+      padding: 0.5em;
+      margin: 0;
+      text-align: center;
+    }
+    .views-field-name {
+      padding: 0.5em;
+      max-width: 100px;
+    }
+  }
+}

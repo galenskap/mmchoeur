@@ -47,9 +47,7 @@ a.primary:hover {
   @extend %primary-button;
 }
 
-.main-content {
-  width: 100%;
-}
+
 // STRUCTURE
 
 .container {
@@ -65,6 +63,9 @@ a.primary:hover {
 .main-wrapper {
   background: $lightbackground;
   padding: 2rem 0;
+}
+#main-content {
+  width: 100%;
 }
 
 
