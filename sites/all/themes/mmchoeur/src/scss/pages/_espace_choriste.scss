@@ -57,8 +57,33 @@
   }
   .side-col {
     min-width: 40%;
-    background: $darkbackground;
+    background: lighten($darkbackground, 5%);
     padding: 0rem 2rem;
+
+    .h2,.h3 {
+      font-weight: bold;
+      opacity:.6;
+    }
+    .h4{
+      font-weight: bold;
+      padding-left: .5rem;
+    }
+    ul {
+      padding-left: 1rem;
+    }
+    li {
+      list-style-type: none;
+      padding-left: .5rem;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:before {
+      content:"▸ ";
+    }
+    a:hover {
+      color: $primary;
+    }
   }
   .headings {
     font-family: $titlesfont;
@@ -70,8 +95,9 @@
     font-size: 1.2em;
   }
   .part {
-    margin-top: 3rem;
-    border-top: 1px solid $lightbackground;
+    //margin-top: 3rem;
+    border-top: 3px solid $lightbackground;
+    padding-bottom: 2rem;
   }
   audio {
     margin: 1rem auto;

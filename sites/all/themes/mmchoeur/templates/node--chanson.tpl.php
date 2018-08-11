@@ -143,7 +143,7 @@
                 $type = end($type);
                 ?>
                 <li>
-                  <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo $type ?></span></a>
+                  <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?></a><span class="type-icon" data-type="<?php echo $type ?>"><?php echo $type ?></span>
                   <?php if ($type != 'midi'): ?>
                     <audio controls>
                       <source src="<?php echo file_create_url($file['uri']) ?>" type="<?php echo $file['filemime'] ?>">
@@ -172,7 +172,7 @@
                   $type = end($type);
                   ?>
                   <li>
-                    <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?><span class="type-icon"><?php echo  $type ?></span></a>
+                    <a href="<?php echo file_create_url($file['uri']) ?>"><?php echo $name ?></a><span class="type-icon" data-type="<?php echo $type ?>"><?php echo  $type ?></span>
                     <?php if ($type != 'midi'): ?>
                       <audio controls>
                         <source src="<?php echo file_create_url($file['uri']) ?>" type="<?php echo $file['filemime'] ?>">

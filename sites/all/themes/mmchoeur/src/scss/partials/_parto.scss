@@ -1,0 +1,16 @@
+.type-icon {
+  font-size: .8rem;
+  padding: .1rem .2rem;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #362f2d;
+  font-weight: bold;
+  margin-left: .5rem;
+}
+
+.type-icon[data-type="midi"] {
+  background-color: $iconmidi;
+}
+.type-icon[data-type="mpeg"] {
+  background-color: $iconmpg;
+}

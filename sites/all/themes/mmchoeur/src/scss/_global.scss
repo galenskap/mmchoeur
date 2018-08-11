@@ -26,9 +26,23 @@ h3, .h3 {
   font-size: 1.2em;
 }
 
-a {
+a, a:visited, a:active {
+  color: $darkfont;
+  transition: color .3s ease;
+}
+a:hover {
+  color: darken($darkfont, 15%);
+}
+
+a.primary, a.primary:visited, a.primary:active
+{
   color: $primary;
 }
+
+a.primary:hover {
+  color: darken($primary, 15%);
+}
+
 .btn.primary {
   @extend %primary-button;
 }
