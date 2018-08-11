@@ -32,7 +32,7 @@ function trombinoscope_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Réinitialiser';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'field_pupitre',
@@ -47,7 +47,13 @@ function trombinoscope_views_default_views() {
   $handler->display->display_options['fields']['field_pupitre']['field'] = 'field_pupitre';
   $handler->display->display_options['fields']['field_pupitre']['label'] = 'Pupitre ';
   $handler->display->display_options['fields']['field_pupitre']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_pupitre']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['field_pupitre']['element_class'] = 'h2';
+  $handler->display->display_options['fields']['field_pupitre']['element_label_type'] = 'h2';
+  $handler->display->display_options['fields']['field_pupitre']['element_label_class'] = 'h2';
   $handler->display->display_options['fields']['field_pupitre']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_pupitre']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_pupitre']['element_wrapper_class'] = 'pupitre_grid';
   $handler->display->display_options['fields']['field_pupitre']['type'] = 'taxonomy_term_reference_plain';
   /* Champ: Utilisateur: Image */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
@@ -55,8 +61,8 @@ function trombinoscope_views_default_views() {
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
-  $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
   /* Champ: Utilisateur: Nom */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -66,6 +72,10 @@ function trombinoscope_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Sort criterion: Champ: Pupitre (field_pupitre) */
+  $handler->display->display_options['sorts']['field_pupitre_tid']['id'] = 'field_pupitre_tid';
+  $handler->display->display_options['sorts']['field_pupitre_tid']['table'] = 'field_data_field_pupitre';
+  $handler->display->display_options['sorts']['field_pupitre_tid']['field'] = 'field_pupitre_tid';
   /* Sort criterion: Utilisateur: Date de création */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'users';
