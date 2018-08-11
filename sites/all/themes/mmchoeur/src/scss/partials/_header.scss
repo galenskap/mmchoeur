@@ -42,75 +42,77 @@ header {
     list-style-type: none;
     padding: 0;
   }
-  //annoying hack
-  #main-menu div {
-    height: 100%;
+}
+//annoying hack
+#main-menu div {
+  height: 100%;
+}
+.main-menu .content >.menu {
+  display: flex;
+  margin: 0;
+  height: 100%;
+  align-items: stretch;
+  a, a:hover {
+    transition: color .3s;
   }
-  #main-menu .content >.menu {
-    display: flex;
-    margin: 0;
-    height: 100%;
-    align-items: stretch;
-    a, a:hover {
-      transition: color .3s;
-    }
-    a:hover {
-      color: $primary;
-    }
-    //submenu
-    ul.menu {
-      max-height: 0;
-      transition: max-height .3s ease-out;
-      width: 100%;
-      overflow: hidden;
-      background: $lightbackground;
-      position: absolute;
-      top: 100%;
-      z-index: 50;
-      li {
-        padding: 0;
-        margin: 0;
-        border-bottom: 1px solid #eaeaea;
-        a {
-          font-size: 0.85rem;
-          text-transform: none;
-          padding: 0.8rem 0.5rem;
-          width: 100%;
-        }
-      }
-    }
-    // au survol
-    .expanded:hover ul.menu,
-    ul.menu:hover {
-      max-height: 300px;
-      transition: max-height .3s ease-in;
-    }
+  a:hover {
+    color: $primary;
+  }
+  //submenu
+  ul.menu {
+    max-height: 0;
+    transition: max-height .3s ease-out;
+    width: 100%;
+    overflow: hidden;
+    background: $lightbackground;
+    position: absolute;
+    top: 100%;
+    z-index: 50;
     li {
-      display: flex;
-      align-items: center;
-      position: relative;
       padding: 0;
-      a, .nolink {
-        padding: 0.5rem;
-        text-transform: uppercase;
-        font-family: $titlesfont;
-        display: block;
-        cursor: pointer;
+      margin: 0;
+      border-bottom: 1px solid #eaeaea;
+      a {
+        font-size: 0.85rem;
+        text-transform: none;
+        padding: 0.8rem 0.5rem;
+        width: 100%;
       }
-      a.active::after,
-      .nolink.active::after {
-        content: '';
-        height: 5px;
-        background: $primary;
-        position: absolute;
-        top: calc(100% - 5px);
-        right: 0;
-        left: 0;
-      }
+    }
+  }
+  // au survol
+  .expanded:hover ul.menu,
+  ul.menu:hover {
+    max-height: 300px;
+    transition: max-height .3s ease-in;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    a, .nolink {
+      padding: 0.5rem;
+      text-transform: uppercase;
+      font-family: $titlesfont;
+      display: block;
+      cursor: pointer;
+    }
+    a.active::after,
+    .nolink.active::after {
+      content: '';
+      height: 5px;
+      background: $primary;
+      position: absolute;
+      top: calc(100% - 5px);
+      right: 0;
+      left: 0;
     }
   }
 }
-
+.toggle-wrapper{
+  display: none;
+}
 .heading {
   .breadcrumb {
     padding: 1rem 0;
@@ -120,5 +122,80 @@ header {
   .title-zone .title {
     text-align: center;
     padding: 2rem 1rem;
+  }
+}
+
+@media screen and (max-width:$mobile) {
+  .header {
+    .logo {
+      padding-left: .5rem;
+    }
+  }
+  .main-menu {
+    position: absolute;
+    background: #FFF;
+    top: 0;
+    right: 0;
+    left: 100%;
+    width: 100%;
+    transition: all .3s ease-in;
+    z-index: 3;
+    &.active {
+      left: 0;
+    }
+    .menu {
+      flex-direction:column;
+      li {
+        margin: 0;
+        display: block;
+        flex-direction:column;
+        padding: 1rem;
+      }
+    }
+  }
+  .main-menu .content > .menu li a, .main-menu .content > .menu li .nolink {
+    border-bottom: 1px solid #eaeaea;
+    padding: 1rem;
+    width: 100%;
+  }
+  .main-menu .content > .menu li{
+    align-items:flex-start;
+  }
+  .main-menu .content > .menu ul.menu {
+    position: static;
+    max-height:100%;
+  }
+  .main-menu .content > .menu ul.menu li {
+    padding-left: 1rem;
+    background: #EEE;
+  }
+
+  .toggle-menu{
+    position: relative;
+  }
+  .toggle-menu,
+  .toggle-menu:after,
+  .toggle-menu:before{
+    display: block;
+    background: $darkfont;
+    content:"";
+    display: block;
+    width: 2rem;
+    height: .4rem;
+    border-radius: 4px;
+  }
+  .toggle-menu:after {
+    position: absolute;
+    top: .65rem;
+  }
+  .toggle-menu:before{
+    position: absolute;
+    top: -.65rem;
+  }
+  .toggle-wrapper {
+    display: flex;
+    padding-right: 1rem;
+    cursor: pointer;
+    align-items: center;
   }
 }

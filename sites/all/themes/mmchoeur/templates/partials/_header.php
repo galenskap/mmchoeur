@@ -12,6 +12,8 @@
     <nav id="main-menu" class="navigation main-menu">
       <?php print render($page['header']); ?>
     </nav>
-
+    <div class="toggle-wrapper">
+      <div class="toggle-menu"></div>
+    </div>
   </div><!-- /.container -->
 </header>
