@@ -34,7 +34,7 @@ a:hover {
   color: darken($darkfont, 15%);
 }
 
-a.primary, a.primary:visited, a.primary:active
+a:not(.btn).primary, a:not(.btn).primary:visited, a:not(.btn).primary:active
 {
   color: $primary;
 }
@@ -43,7 +43,7 @@ a.primary:hover {
   color: darken($primary, 15%);
 }
 
-.btn.primary {
+.btn.primary, a.btn.primary {
   @extend %primary-button;
 }
 
