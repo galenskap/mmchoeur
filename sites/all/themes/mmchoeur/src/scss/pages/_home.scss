@@ -85,3 +85,18 @@
 .front #footer {
   background: $lightbackground;
 }
+
+@media screen and (max-width: $mobile) {
+  .view-home-slider {
+    display: none;
+  }
+  .homezone {
+    padding: 1rem;
+  }
+  #block-views-home-videos-block .view-content {
+    flex-direction: column;
+    .views-row {
+      padding-bottom: 1rem;
+    }
+  }
+}
