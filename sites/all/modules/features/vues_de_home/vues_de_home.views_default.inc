@@ -30,6 +30,7 @@ function vues_de_home_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Réinitialiser';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Trier par';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -84,7 +85,7 @@ function vues_de_home_views_default_views() {
     t('more'),
     t('Apply'),
     t('Réinitialiser'),
-    t('Sort by'),
+    t('Trier par'),
     t('Asc'),
     t('Desc'),
     t('Block'),
@@ -111,6 +112,7 @@ function vues_de_home_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Réinitialiser';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Trier par';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -158,7 +160,7 @@ function vues_de_home_views_default_views() {
     t('more'),
     t('Apply'),
     t('Réinitialiser'),
-    t('Sort by'),
+    t('Trier par'),
     t('Asc'),
     t('Desc'),
     t('Block'),
