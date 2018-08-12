@@ -72,3 +72,44 @@
     padding-top: 0;
   }
 }
+@media screen and (max-width: $mobile) {
+  .views-exposed-form .views-exposed-widget {
+    float: none;
+  }
+  .page-partotheque .view-filters .views-exposed-widgets {
+    display: block;
+  }
+  .view-filters:before {
+    content:"Filtres et recherche ▸";
+    display: block;
+    color: #FFF;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    cursor: pointer;
+  }
+  .view-filters > form {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+  .view-filters > form.active {
+    transition: max-height .3s ease;
+    max-height: 4000px;
+  }
+  .page-partotheque .view-content li {
+    flex-direction: column;
+  }
+  .page-partotheque .view-content li .views-field-view-node {
+    width: 100%;
+    margin:auto;
+    padding: .5rem 0;
+  }
+  .page-partotheque .view-content li .views-field-nothing {
+    margin: 0;
+  }
+  .page-partotheque .views-field-timestamp {
+    font-size: .8rem;
+    padding: .3rem 0;
+  }
+}
