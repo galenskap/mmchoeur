@@ -1,0 +1,85 @@
+.view-agenda {
+  .views-field-field-date-agenda {
+    text-align: center;
+    .short-date {
+      padding: .5em;
+    }
+    .short-date > span {
+      display: block;
+    }
+    .day {
+      font-size: 1.75em;
+      line-height: 1em;
+    }
+    .month {
+      font-size: 1.5em;
+      line-height: 1em;
+      text-transform: lowercase;
+    }
+    .year {
+      padding: 0.25em 0;
+    }
+  }
+
+
+  /** PAGE AGENDA **/
+  &.view-display-id-page {
+    .views-field-field-date-agenda {
+      position: absolute;
+      left: 0;
+      width: 120px;
+      .short-date {
+        background: $primary;
+        color: white;
+      }
+    }
+    .view-content {
+      position: relative;
+    }
+    .views-row {
+      margin-left: calc(120px + 1em);
+      margin-bottom: 4rem;
+    }
+    .views-field-title {
+      font-size: 1.5em;
+      margin-bottom: .5em;
+      font-family: $titlesfont;
+    }
+    .views-field-field-adresse {
+      color: $lightfont;
+      .field-content {
+        display: inline;
+      }
+    }
+    .hour-precision {
+      display: block;
+      padding: .5em;
+      font-size: 1rem;
+      font-style: italic;
+      span {
+        display: block;
+      }
+    }
+  }
+
+  /** HOME BLOC AGENDA **/
+  &.view-display-id-block {
+    .views-row {
+      margin-left: calc(100px + 1em);
+    }
+    .views-field-field-date-agenda {
+        width: 80px;
+        font-size: 0.7em;
+        flex-shrink: 0;
+        flex-grow: 0; // tu touches pas à ma taille, flex!
+        padding: 0 1em 1em 0;
+        .short-date {
+          background: $lightbackground;
+          color: $lightfont;
+        }
+    }
+    .hour-precision {
+      display: none;
+    }
+  }
+}
