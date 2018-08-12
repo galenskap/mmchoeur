@@ -10,6 +10,7 @@
     <?php endif; ?>
 
     <nav id="main-menu" class="navigation main-menu">
+        <span class="close-menu">✖</span>
       <?php print render($page['header']); ?>
     </nav>
     <div class="toggle-wrapper">
