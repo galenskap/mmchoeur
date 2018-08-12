@@ -61,6 +61,7 @@ function agenda_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Champ: Contenu: Adresse */
   $handler->display->display_options['fields']['field_adresse']['id'] = 'field_adresse';
   $handler->display->display_options['fields']['field_adresse']['table'] = 'field_data_field_adresse';
@@ -91,6 +92,13 @@ function agenda_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'evenement' => 'evenement',
   );
+  /* Filter criterion: Contenu: Date (field_date_agenda) */
+  $handler->display->display_options['filters']['field_date_agenda_value']['id'] = 'field_date_agenda_value';
+  $handler->display->display_options['filters']['field_date_agenda_value']['table'] = 'field_data_field_date_agenda';
+  $handler->display->display_options['filters']['field_date_agenda_value']['field'] = 'field_date_agenda_value';
+  $handler->display->display_options['filters']['field_date_agenda_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_agenda_value']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_date_agenda_value']['year_range'] = '-1:+1';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
