@@ -24,7 +24,11 @@ function repertoire_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Répertoire';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    1 => '1',
+    2 => '2',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -116,6 +120,40 @@ function repertoire_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'repertoire';
+
+  /* Display: Bloc */
+  $handler = $view->new_display('block', 'Bloc', 'block_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Contenu: Publié */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenu: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'chanson' => 'chanson',
+  );
+  /* Filter criterion: Terme de taxonomie: Saison courante (field_saison_courante) */
+  $handler->display->display_options['filters']['field_saison_courante_value']['id'] = 'field_saison_courante_value';
+  $handler->display->display_options['filters']['field_saison_courante_value']['table'] = 'field_data_field_saison_courante';
+  $handler->display->display_options['filters']['field_saison_courante_value']['field'] = 'field_saison_courante_value';
+  $handler->display->display_options['filters']['field_saison_courante_value']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['filters']['field_saison_courante_value']['value'] = array(
+    1 => '1',
+  );
   $translatables['repertoire'] = array(
     t('Master'),
     t('Répertoire'),
@@ -130,6 +168,7 @@ function repertoire_views_default_views() {
     t('Saison '),
     t('Tout'),
     t('Page'),
+    t('Bloc'),
   );
   $export['repertoire'] = $view;
 
