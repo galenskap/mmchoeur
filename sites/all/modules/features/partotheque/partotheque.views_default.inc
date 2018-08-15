@@ -41,6 +41,18 @@ function partotheque_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'dernier »';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Champ: Contenu: Style */
+  $handler->display->display_options['fields']['field_style']['id'] = 'field_style';
+  $handler->display->display_options['fields']['field_style']['table'] = 'field_data_field_style';
+  $handler->display->display_options['fields']['field_style']['field'] = 'field_style';
+  $handler->display->display_options['fields']['field_style']['label'] = '';
+  $handler->display->display_options['fields']['field_style']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_style']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_style']['element_class'] = 'styles';
+  $handler->display->display_options['fields']['field_style']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_style']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_style']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_style']['separator'] = ' / ';
   /* Champ: Contenu: Titre */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -62,9 +74,9 @@ function partotheque_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[title] - [field_auteur]';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[title] - [field_auteur] <span class="style">[field_style]</span>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Champ: Content revision: Updated date */
+  /* Champ: Content revision: Date de mise à jour */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
@@ -158,7 +170,7 @@ function partotheque_views_default_views() {
     t('‹ précédent'),
     t('suivant ›'),
     t('dernier »'),
-    t('[title] - [field_auteur]'),
+    t('[title] - [field_auteur] <span class="style">[field_style]</span>'),
     t('Modifié le : '),
     t('Voir le détail'),
     t('Date'),

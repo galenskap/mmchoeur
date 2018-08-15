@@ -22,7 +22,7 @@ function repertoire_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Répertoire';
+  $handler->display->display_options['title'] = 'Répertoire de la saison';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -59,11 +59,30 @@ function repertoire_views_default_views() {
     'saisons' => 'saisons',
     'pupitres' => 0,
   );
+  /* Champ: Contenu: Style */
+  $handler->display->display_options['fields']['field_style']['id'] = 'field_style';
+  $handler->display->display_options['fields']['field_style']['table'] = 'field_data_field_style';
+  $handler->display->display_options['fields']['field_style']['field'] = 'field_style';
+  $handler->display->display_options['fields']['field_style']['label'] = '';
+  $handler->display->display_options['fields']['field_style']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_style']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_style']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_style']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_style']['separator'] = ' / ';
+  /* Champ: Contenu: Auteur */
+  $handler->display->display_options['fields']['field_auteur']['id'] = 'field_auteur';
+  $handler->display->display_options['fields']['field_auteur']['table'] = 'field_data_field_auteur';
+  $handler->display->display_options['fields']['field_auteur']['field'] = 'field_auteur';
+  $handler->display->display_options['fields']['field_auteur']['label'] = '';
+  $handler->display->display_options['fields']['field_auteur']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_auteur']['element_label_colon'] = FALSE;
   /* Champ: Contenu: Titre */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<strong>[title]</strong> - [field_auteur]<span class="style">[field_style]</span>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
@@ -76,12 +95,6 @@ function repertoire_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = 'Saison ';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Champ: Contenu: Auteur */
-  $handler->display->display_options['fields']['field_auteur']['id'] = 'field_auteur';
-  $handler->display->display_options['fields']['field_auteur']['table'] = 'field_data_field_auteur';
-  $handler->display->display_options['fields']['field_auteur']['field'] = 'field_auteur';
-  $handler->display->display_options['fields']['field_auteur']['label'] = '';
-  $handler->display->display_options['fields']['field_auteur']['element_label_colon'] = FALSE;
   /* Sort criterion: Terme de taxonomie: Poids */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
@@ -156,7 +169,7 @@ function repertoire_views_default_views() {
   );
   $translatables['repertoire'] = array(
     t('Master'),
-    t('Répertoire'),
+    t('Répertoire de la saison'),
     t('more'),
     t('Apply'),
     t('Réinitialiser'),
@@ -165,6 +178,7 @@ function repertoire_views_default_views() {
     t('Desc'),
     t('Texte d\'introduction à notre répertoire'),
     t('term'),
+    t('<strong>[title]</strong> - [field_auteur]<span class="style">[field_style]</span>'),
     t('Saison '),
     t('Tout'),
     t('Page'),

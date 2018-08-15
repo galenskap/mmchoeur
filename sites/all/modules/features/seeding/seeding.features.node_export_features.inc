@@ -576,13 +576,34 @@ function seeding_node_export_features_default() {
           ),
         ),
       ),
-      \'field_partitions\' => array(),
+      \'field_partitions\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'3\',
+            \'revision_id\' => \'3\',
+          ),
+        ),
+      ),
       \'field_piano\' => array(),
-      \'field_repetitions\' => array(),
+      \'field_repetitions\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'4\',
+            \'revision_id\' => \'4\',
+          ),
+        ),
+      ),
       \'field_saison\' => array(
         \'und\' => array(
           array(
             \'tid\' => \'6\',
+          ),
+        ),
+      ),
+      \'field_style\' => array(
+        \'und\' => array(
+          array(
+            \'tid\' => \'11\',
           ),
         ),
       ),
@@ -725,6 +746,13 @@ function seeding_node_export_features_default() {
         \'und\' => array(
           array(
             \'tid\' => \'7\',
+          ),
+        ),
+      ),
+      \'field_style\' => array(
+        \'und\' => array(
+          array(
+            \'tid\' => \'12\',
           ),
         ),
       ),
