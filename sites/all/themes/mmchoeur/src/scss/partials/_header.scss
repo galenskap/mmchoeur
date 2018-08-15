@@ -43,6 +43,17 @@ header {
     padding: 0;
   }
 }
+.user-bar {
+  justify-content: flex-end;
+  span, a {
+    padding: .25em .75em;
+    background: #f0f0f0;
+    font-size: 0.9em;
+    margin-bottom: -2em;
+  }
+}
+// home exception
+.front .user-bar span, .front .user-bar a { margin-bottom: -1em; }
 //annoying hack
 #main-menu div {
   height: 100%;

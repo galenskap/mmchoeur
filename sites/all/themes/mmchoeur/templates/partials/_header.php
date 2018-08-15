@@ -18,3 +18,16 @@
     </div>
   </div><!-- /.container -->
 </header>
+
+<div class="user-bar flex-container">
+  <?php
+    if ($user->uid) {
+      echo '<span class="welcome">Bonjour '.$user->name.' !</span>';
+      echo l('Mon compte', 'user');
+        echo l('Déconnexion', 'user/logout');
+    }
+    else {
+      echo l('Se connecter', 'user');
+    }
+  ?>
+</div>
