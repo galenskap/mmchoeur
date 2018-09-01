@@ -32,6 +32,9 @@ function agenda_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Réinitialiser';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« premier';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ précédent';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'suivant ›';
@@ -169,6 +172,35 @@ function agenda_views_default_views() {
   $handler->display->display_options['sorts']['field_date_agenda_value']['table'] = 'field_data_field_date_agenda';
   $handler->display->display_options['sorts']['field_date_agenda_value']['field'] = 'field_date_agenda_value';
   $handler->display->display_options['sorts']['field_date_agenda_value']['expose']['label'] = 'Date';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Archives de l\'agenda';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Contenu: Publié */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenu: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'evenement' => 'evenement',
+  );
+  /* Filter criterion: Contenu: Date (field_date_agenda) */
+  $handler->display->display_options['filters']['field_date_agenda_value']['id'] = 'field_date_agenda_value';
+  $handler->display->display_options['filters']['field_date_agenda_value']['table'] = 'field_data_field_date_agenda';
+  $handler->display->display_options['filters']['field_date_agenda_value']['field'] = 'field_date_agenda_value';
+  $handler->display->display_options['filters']['field_date_agenda_value']['operator'] = '<';
+  $handler->display->display_options['filters']['field_date_agenda_value']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_date_agenda_value']['year_range'] = '-1:+1';
+  $handler->display->display_options['path'] = 'agenda/archives';
   $translatables['agenda'] = array(
     t('Master'),
     t('Agenda'),
@@ -193,6 +225,7 @@ function agenda_views_default_views() {
     t('Tout l\'agenda'),
     t('<div class="event-title h3">[title]</div>
 <div class="address">[field_adresse]</div>'),
+    t('Archives de l\'agenda'),
   );
   $export['agenda'] = $view;
 

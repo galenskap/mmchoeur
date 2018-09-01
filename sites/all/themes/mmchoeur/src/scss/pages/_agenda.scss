@@ -23,7 +23,7 @@
 
 
   /** PAGE AGENDA **/
-  &.view-display-id-page {
+  &[class*='view-display-id-page'] {
     .views-field-field-date-agenda {
       position: absolute;
       left: 0;
