@@ -25,9 +25,13 @@
 
   .revision-date {
     font-size: 1.2rem;
-    margin-top: 2em 0 0.5em;
+    margin: 2em 0 0.5em;
   }
   .revision-date:first-of-type { margin-top: 1em; }
+
+  .views-row {
+    padding: 0.25em;
+  }
 
   .views-field-type {
     float: left;
