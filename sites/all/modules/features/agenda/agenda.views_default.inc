@@ -41,6 +41,13 @@ function agenda_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'dernier »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Pied de page: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<a href="agenda/archives" class="btn primary">Voir les archives</a>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Champ: Contenu: Date */
   $handler->display->display_options['fields']['field_date_agenda']['id'] = 'field_date_agenda';
   $handler->display->display_options['fields']['field_date_agenda']['table'] = 'field_data_field_date_agenda';
@@ -124,6 +131,7 @@ function agenda_views_default_views() {
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Champ: Contenu: Date */
   $handler->display->display_options['fields']['field_date_agenda']['id'] = 'field_date_agenda';
@@ -149,6 +157,7 @@ function agenda_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Champ: Contenu: Adresse */
   $handler->display->display_options['fields']['field_adresse']['id'] = 'field_adresse';
   $handler->display->display_options['fields']['field_adresse']['table'] = 'field_data_field_adresse';
@@ -173,10 +182,11 @@ function agenda_views_default_views() {
   $handler->display->display_options['sorts']['field_date_agenda_value']['field'] = 'field_date_agenda_value';
   $handler->display->display_options['sorts']['field_date_agenda_value']['expose']['label'] = 'Date';
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
+  /* Display: Archives */
+  $handler = $view->new_display('page', 'Archives', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Archives de l\'agenda';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenu: Publié */
@@ -217,6 +227,7 @@ function agenda_views_default_views() {
     t('‹ précédent'),
     t('suivant ›'),
     t('dernier »'),
+    t('<a href="agenda/archives" class="btn primary">Voir les archives</a>'),
     t('Adresse'),
     t('Date'),
     t('Page'),
@@ -225,6 +236,7 @@ function agenda_views_default_views() {
     t('Tout l\'agenda'),
     t('<div class="event-title h3">[title]</div>
 <div class="address">[field_adresse]</div>'),
+    t('Archives'),
     t('Archives de l\'agenda'),
   );
   $export['agenda'] = $view;
