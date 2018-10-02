@@ -84,14 +84,14 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1538476809;
+  $strongarm->value = 1538488762;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'pfywmh';
+  $strongarm->value = 'pfz3le';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -303,11 +303,11 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => 'f1a63dde336668353c2e67e1ad3ab22f',
+      'variable' => 'db04ae382c1c0501475af4eb81ae8b19',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
-      'dependencies' => '52fb240bd26c23ba9004cb6eb640a42f',
+      'dependencies' => '304416ffaa9b9ec2409f5c99418d6ec3',
     ),
     'roles_et_permissions' => array(
       'user_role' => '60b78d3df26a170e8b036efb2a6fd053',
@@ -740,16 +740,16 @@ function configuration_strongarm() {
     7 => 'sites/all/modules/contrib/adminimal_admin_menu/js/slicknav/jquery-no-conflict.slicknav.js',
     8 => 'sites/all/modules/contrib/adminimal_admin_menu/js/adminimal_admin_menu.js',
     9 => 'misc/form.js',
-    10 => 'misc/collapse.js',
-    11 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
-    12 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
-    13 => 'sites/all/themes/mmchoeur/build/all.js',
-    14 => 'sites/all/modules/contrib/features/features.js',
-    15 => 'misc/tableheader.js',
-    16 => 'misc/vertical-tabs.js',
-    17 => 'misc/machine-name.js',
-    18 => 'misc/autocomplete.js',
-    19 => 'misc/jquery.cookie.js',
+    10 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
+    11 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
+    12 => 'modules/user/user.js',
+    13 => 'misc/jquery.cookie.js',
+    14 => 'misc/collapse.js',
+    15 => 'sites/all/modules/contrib/features/features.js',
+    16 => 'misc/tableheader.js',
+    17 => 'misc/vertical-tabs.js',
+    18 => 'misc/machine-name.js',
+    19 => 'misc/autocomplete.js',
     20 => 'misc/jquery.form.js',
     21 => 'misc/progress.js',
     22 => 'misc/ajax.js',
@@ -870,7 +870,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mailsystem_theme';
-  $strongarm->value = 'current';
+  $strongarm->value = 'mmchoeur';
   $export['mailsystem_theme'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -879,8 +879,8 @@ function configuration_strongarm() {
   $strongarm->name = 'mail_system';
   $strongarm->value = array(
     'default-system' => 'MimeMailSystem__SmtpMailSystem',
-    'htmlmail' => 'HTMLMailSystem',
-    'mimemail' => 'MimeMailSystem',
+    'htmlmail' => 'MimeMailSystem__SmtpMailSystem',
+    'mimemail' => 'MimeMailSystem__SmtpMailSystem',
   );
   $export['mail_system'] = $strongarm;
 
@@ -942,6 +942,76 @@ function configuration_strongarm() {
     41 => 1,
   );
   $export['menu_masks'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_engine';
+  $strongarm->value = 'mimemail';
+  $export['mimemail_engine'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_format';
+  $strongarm->value = 'full_html';
+  $export['mimemail_format'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_incoming';
+  $strongarm->value = 0;
+  $export['mimemail_incoming'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_key';
+  $strongarm->value = '5hYOm4zn-PyzswZ6AtYG8-bfPeS4EUfTuYzyp36UfrQ';
+  $export['mimemail_key'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_linkonly';
+  $strongarm->value = 0;
+  $export['mimemail_linkonly'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_mail';
+  $strongarm->value = 'intruss@gmail.com';
+  $export['mimemail_mail'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_name';
+  $strongarm->value = 'Music\'M Choeur';
+  $export['mimemail_name'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_simple_address';
+  $strongarm->value = 0;
+  $export['mimemail_simple_address'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_sitestyle';
+  $strongarm->value = 1;
+  $export['mimemail_sitestyle'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mimemail_textonly';
+  $strongarm->value = 0;
+  $export['mimemail_textonly'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1231,14 +1301,14 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1538476815;
+  $strongarm->value = 1538488770;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_email_notification';
-  $strongarm->value = 1529226926;
+  $strongarm->value = 1538488762;
   $export['update_last_email_notification'] = $strongarm;
 
   $strongarm = new stdClass();
