@@ -84,14 +84,14 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1538465641;
+  $strongarm->value = 1538476809;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'pfyq1e';
+  $strongarm->value = 'pfywmh';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -135,6 +135,13 @@ function configuration_strongarm() {
   $strongarm->name = 'drupal_private_key';
   $strongarm->value = '1h8rbAlcqdQKdq4OOKkY6g5C2VjxuWzaUkMmIdzLNtc';
   $export['drupal_private_key'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'email__active_tab';
+  $strongarm->value = 'edit-email-admin-created';
+  $export['email__active_tab'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -296,11 +303,11 @@ function configuration_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'configuration' => array(
-      'variable' => '97cddabcad299f86615ed291957a9cae',
+      'variable' => 'f1a63dde336668353c2e67e1ad3ab22f',
       'ckeditor_profile' => 'a28bd47280ee3633117f37e6bc975ac5',
       'filter' => 'e1ba718b9bb5189bfb3604dcce922498',
       'language' => 'e4c353249924119776a68a95e72ee3a2',
-      'dependencies' => '214d663b7aef06aa5f1113c41fa0c7c6',
+      'dependencies' => '52fb240bd26c23ba9004cb6eb640a42f',
     ),
     'roles_et_permissions' => array(
       'user_role' => '60b78d3df26a170e8b036efb2a6fd053',
@@ -732,28 +739,29 @@ function configuration_strongarm() {
     6 => 'sites/all/modules/contrib/adminimal_admin_menu/js/jquery.min.js',
     7 => 'sites/all/modules/contrib/adminimal_admin_menu/js/slicknav/jquery-no-conflict.slicknav.js',
     8 => 'sites/all/modules/contrib/adminimal_admin_menu/js/adminimal_admin_menu.js',
-    9 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
-    10 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
-    11 => 'misc/form.js',
-    12 => 'sites/all/modules/contrib/features/features.js',
-    13 => 'misc/tableheader.js',
-    14 => 'misc/vertical-tabs.js',
-    15 => 'misc/collapse.js',
-    16 => 'misc/machine-name.js',
-    17 => 'misc/autocomplete.js',
-    18 => 'misc/jquery.cookie.js',
-    19 => 'misc/jquery.form.js',
-    20 => 'misc/progress.js',
-    21 => 'misc/ajax.js',
-    22 => 'misc/ui/jquery.ui.core.min.js',
-    23 => 'misc/ui/jquery.ui.widget.min.js',
-    24 => 'misc/ui/jquery.ui.button.min.js',
-    25 => 'misc/ui/jquery.ui.mouse.min.js',
-    26 => 'misc/ui/jquery.ui.draggable.min.js',
-    27 => 'misc/ui/jquery.ui.position.min.js',
-    28 => 'misc/ui/jquery.ui.resizable.min.js',
-    29 => 'misc/ui/jquery.ui.dialog.min.js',
-    30 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
+    9 => 'misc/form.js',
+    10 => 'misc/collapse.js',
+    11 => 'sites/all/themes/adminimal_theme/skins/default/default.js',
+    12 => 'sites/all/modules/contrib/admin_menu/admin_menu.js',
+    13 => 'sites/all/themes/mmchoeur/build/all.js',
+    14 => 'sites/all/modules/contrib/features/features.js',
+    15 => 'misc/tableheader.js',
+    16 => 'misc/vertical-tabs.js',
+    17 => 'misc/machine-name.js',
+    18 => 'misc/autocomplete.js',
+    19 => 'misc/jquery.cookie.js',
+    20 => 'misc/jquery.form.js',
+    21 => 'misc/progress.js',
+    22 => 'misc/ajax.js',
+    23 => 'misc/ui/jquery.ui.core.min.js',
+    24 => 'misc/ui/jquery.ui.widget.min.js',
+    25 => 'misc/ui/jquery.ui.button.min.js',
+    26 => 'misc/ui/jquery.ui.mouse.min.js',
+    27 => 'misc/ui/jquery.ui.draggable.min.js',
+    28 => 'misc/ui/jquery.ui.position.min.js',
+    29 => 'misc/ui/jquery.ui.resizable.min.js',
+    30 => 'misc/ui/jquery.ui.dialog.min.js',
+    31 => 'sites/all/modules/contrib/views/js/jquery.ui.dialog.patch.js',
   );
   $export['javascript_parsed'] = $strongarm;
 
@@ -861,6 +869,24 @@ function configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'mailsystem_theme';
+  $strongarm->value = 'current';
+  $export['mailsystem_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mail_system';
+  $strongarm->value = array(
+    'default-system' => 'MimeMailSystem__SmtpMailSystem',
+    'htmlmail' => 'HTMLMailSystem',
+    'mimemail' => 'MimeMailSystem',
+  );
+  $export['mail_system'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_expanded';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -921,9 +947,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'module_filter_recent_modules';
-  $strongarm->value = array(
-    'date_views' => 1534083614,
-  );
+  $strongarm->value = array();
   $export['module_filter_recent_modules'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1192,6 +1216,13 @@ function configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'smtp_previous_mail_system';
+  $strongarm->value = 'DefaultMailSystem';
+  $export['smtp_previous_mail_system'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
   $strongarm->value = 'mmchoeur';
   $export['theme_default'] = $strongarm;
@@ -1200,7 +1231,7 @@ function configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1538465660;
+  $strongarm->value = 1538476815;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();
