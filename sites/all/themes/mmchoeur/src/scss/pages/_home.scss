@@ -14,12 +14,14 @@
 }
 .view-home-slider,
 .view-home-videos {
-  @extend %flex-container;
   overflow: hidden;
-  margin-top: 1rem;
+  margin: 1rem auto;
   position: relative;
   text-align: left;
+  width: 100%;
+  max-width: 1024px;
 }
+.view-home-videos,
 .region-home-higher-central,
 .region-home-bottom {
   @extend %flex-container;
