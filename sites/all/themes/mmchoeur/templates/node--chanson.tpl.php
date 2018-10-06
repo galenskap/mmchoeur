@@ -104,6 +104,7 @@
       <h2 class="side-title h2">
         <?php echo t('Téléchargements') ?>
       </h2>
+      <p>Cliquez sur les titres des différentes partitions et audios pour les télécharger.</p>
 
       <?php if (isset($node->field_partitions['und'])): ?>
         <div class="part partitions">
