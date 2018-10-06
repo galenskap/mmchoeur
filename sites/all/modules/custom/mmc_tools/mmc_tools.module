@@ -40,3 +40,11 @@ function mmc_tools_node_access($node, $op, $account){
         drupal_goto('/');
     }
 }
+
+function mmc_tools_init() {
+    global $user;
+    if(current_path() == 'espace-choriste' && $user->uid == 0) {
+        drupal_set_message('Vous devez être connecté pour accéder à l\'espace choristes.', 'error');
+        drupal_goto('user');
+    }
+}
