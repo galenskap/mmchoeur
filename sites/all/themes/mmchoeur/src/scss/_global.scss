@@ -44,7 +44,7 @@ a.primary:hover {
   color: darken($primary, 15%);
 }
 
-.btn.primary, a.btn.primary {
+.btn.primary, a.btn.primary, .form-actions .button-primary {
   @extend %primary-button;
 }
 
