@@ -83,6 +83,10 @@
   }
 }
 
+.homezone .view-repertoire .views-row {
+  margin: 0.5em 0;
+}
+
 // Pour cause d'alternance entre les blocs, le footer doit changer de couleur sur la home seulement
 .front #footer {
   background: $lightbackground;
