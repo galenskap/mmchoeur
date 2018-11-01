@@ -20,14 +20,19 @@
       padding: 0.25em 0;
     }
   }
+  .view-footer {
+    clear: both;
+    text-align: right;
+    margin-top: 3em;
+  }
 
 
   /** PAGE AGENDA **/
   &[class*='view-display-id-page'] {
     .views-field-field-date-agenda {
-      position: absolute;
-      left: 0;
+      float: left;
       width: 120px;
+      margin-right: 1em;
       .short-date {
         background: $primary;
         color: white;
@@ -38,7 +43,7 @@
     }
     .views-row {
       margin-left: calc(120px + 1em);
-      margin-bottom: 4rem;
+      clear: both;
     }
     .views-field-title {
       font-size: 1.5em;
