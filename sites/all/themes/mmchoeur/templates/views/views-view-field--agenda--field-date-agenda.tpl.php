@@ -22,7 +22,11 @@
  * the view is modified.
  */
  $unformatted = $row->field_field_date_agenda[0]['raw']['value'];
- $unformattedDate = DateTime::createFromFormat('Y-m-d H:i:s', $unformatted);
+ $timezoneDb = new DateTimeZone($row->field_field_date_agenda[0]['raw']['timezone_db']);
+ $timezoneDisplayed = new DateTimeZone($row->field_field_date_agenda[0]['raw']['timezone']);
+
+ $utcDate = DateTime::createFromFormat('Y-m-d H:i:s', $unformatted, $timezoneDb);
+ $unformattedDate = $utcDate->setTimeZone($timezoneDisplayed);
 ?>
 <div class="date short-date">
   <span class="day"><?= $unformattedDate->format('d'); ?></span>
