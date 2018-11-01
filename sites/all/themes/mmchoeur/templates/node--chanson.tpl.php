@@ -121,7 +121,7 @@
                     $name = (!empty($doc['description'])) ? $doc['description'] : $doc['filename'];
                     ?>
                     <li>
-                      <a href="<?php echo file_create_url($doc['uri']) ?>"><?php echo $name ?></a>
+                      <a href="<?php echo file_create_url($doc['uri']) ?>" target="_blank"><?php echo $name ?></a>
                     </li>
                   <?php endforeach; ?>
                     <?php else: ?>
