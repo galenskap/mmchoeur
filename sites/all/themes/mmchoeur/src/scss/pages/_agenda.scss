@@ -33,6 +33,7 @@
       float: left;
       width: 120px;
       margin-right: 1em;
+      margin-bottom: 2rem;
       .short-date {
         background: $primary;
         color: white;
@@ -42,12 +43,12 @@
       position: relative;
     }
     .views-row {
-      margin-left: calc(120px + 1em);
+      margin-left: calc(120px + 1rem);
+      margin-bottom: 2rem;
       clear: both;
     }
     .views-field:not(.views-field-field-date-agenda) {
-      margin-left: calc(120px + 1em);
-      clear: both;
+      margin-left: calc(120px + 1rem);
     }
     .views-field-title {
       font-size: 1.5em;
