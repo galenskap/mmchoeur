@@ -45,6 +45,10 @@
       margin-left: calc(120px + 1em);
       clear: both;
     }
+    .views-field:not(.views-field-field-date-agenda) {
+      margin-left: calc(120px + 1em);
+      clear: both;
+    }
     .views-field-title {
       font-size: 1.5em;
       margin-bottom: .5em;

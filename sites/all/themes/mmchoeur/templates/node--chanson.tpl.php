@@ -135,7 +135,7 @@
 
       <?php if (isset($node->field_piano['und'])): ?>
         <div class="part piano">
-          <h3 class="h3"><?php echo t('Piano seul') ?></h3>
+          <h3 class="h3"><?php echo t('Audios de Maryse') ?></h3>
           <?php foreach ($node->field_piano['und'] as $pid):
             $piano = field_collection_item_load($pid['value'], true);
             $term = taxonomy_term_load($piano->field_pupitre['und'][0]['tid']);

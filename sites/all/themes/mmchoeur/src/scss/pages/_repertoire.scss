@@ -1,5 +1,14 @@
 .page-repertoire {
   .item-list {
-      padding: 2em 0;
+    padding: 2em 0;
+  }
+  .views-row {
+    padding: 0 0 0.25em;
+    clear: both;
+  }
+  .view-content {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
   }
 }
