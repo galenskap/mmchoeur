@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var concat = require('gulp-concat');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
@@ -43,9 +43,9 @@ gulp.task('img', function() {
   .pipe(gulp.dest(config.img.output));
 });
 
-gulp.task('default', function() {
-  gulp.start(['sass', 'js', 'img']);
-});
+//gulp.task('default', function() {
+  //gulp.start(['sass', 'js', 'img']);
+//});
 
 gulp.task('watch', function() {
   if (config.browsersync.proxy) {
@@ -57,3 +57,8 @@ gulp.task('watch', function() {
   gulp.watch(config.js.input, ['js']).on('change', reload);
   gulp.watch(config.img.input, ['img']).on('change', reload);
 });
+
+// update for gulp 4
+gulp.task('default', gulp.series('sass', 'js', 'img'),
+  function (done) { done(); }    
+);

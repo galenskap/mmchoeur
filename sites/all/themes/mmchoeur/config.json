@@ -5,7 +5,7 @@
     "options": {
       "dev": {
         "errLogToConsole": true,
-        "outputStyle": "compact"
+        "outputStyle": "compressed"
       },
       "prod": {
         "outputStyle": "compressed"

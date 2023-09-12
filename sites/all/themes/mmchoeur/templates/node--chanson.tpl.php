@@ -171,6 +171,7 @@
               ?>
               <h4 class="h4"><?php echo $term->name ?></h4>
               <ul>
+                <?php if (isset($piano->field_fichiers['und'])): ?>
                 <?php foreach ($piano->field_fichiers['und'] as $file) {
                   $name = (!empty($file['description'])) ? $file['description'] : $file['filename'];
                   $type = explode('/', $file['filemime']);
@@ -187,6 +188,7 @@
                     </li>
                   <?php  } ?>
                 </ul>
+              <?php endif; ?>
               <?php endforeach; ?>
             </div>
           <?php endif; ?>

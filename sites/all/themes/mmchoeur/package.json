@@ -7,20 +7,20 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "2.11.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "3.1.0",
     "gulp-concat": "^2.6.x",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "2.4.0",
     "gulp-replace": "^0.5.4",
-    "gulp-sass": "2.3.1",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "1.6.0",
     "gulp-stylelint": "0.1.1",
     "gulp-stylelint-console-reporter": "0.1.0",
     "gulp-uglify": "1.5.1",
     "minimatch": "^3.0.2",
+    "sass": "^1.66.1",
     "stylelint-config-axelerant": "0.1.5",
     "yargs": "^6.0.0"
-  },
-  "dependencies": {}
+  }
 }

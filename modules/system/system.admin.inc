@@ -572,9 +572,10 @@ function system_theme_settings($form, &$form_state, $key = '') {
     // Process the theme and all its base themes.
     foreach ($theme_keys as $theme) {
       // Include the theme-settings.php file.
-      $filename = DRUPAL_ROOT . '/' . str_replace("/$theme.info", '', $themes[$theme]->filename) . '/theme-settings.php';
-      if (file_exists($filename)) {
-        require_once $filename;
+      $theme_settings_path = drupal_get_path('theme', $theme) . '/theme-settings.php';
+      if (file_exists(DRUPAL_ROOT . '/' . $theme_settings_path)) {
+        require_once DRUPAL_ROOT . '/' . $theme_settings_path;
+        $form_state['build_info']['files'][] = $theme_settings_path;
       }
 
       // Call theme-specific settings.
@@ -838,7 +839,7 @@ function system_modules($form, $form_state = array()) {
       elseif (isset($visible_files[$requires])) {
         $requires_name = $files[$requires]->info['name'];
         // Disable this module if it is incompatible with the dependency's version.
-        if ($incompatible_version = drupal_check_incompatibility($v, str_replace(DRUPAL_CORE_COMPATIBILITY . '-', '', $files[$requires]->info['version']))) {
+        if ($incompatible_version = drupal_check_incompatibility($v, str_replace(DRUPAL_CORE_COMPATIBILITY . '-', '', (string) $files[$requires]->info['version']))) {
           $extra['requires'][$requires] = t('@module (<span class="admin-missing">incompatible with</span> version @version)', array(
             '@module' => $requires_name . $incompatible_version,
             '@version' => $files[$requires]->info['version'],
@@ -885,7 +886,13 @@ function system_modules($form, $form_state = array()) {
     // one.
     if ($module->status && isset($module->info['configure'])) {
       $configure_link = menu_get_item($module->info['configure']);
-      if ($configure_link['access']) {
+      if ($configure_link === FALSE) {
+        watchdog('system', 'Module %module specifies an invalid path for configuration: %configure', array(
+          '%module' => $module->info['name'],
+          '%configure' => $module->info['configure'],
+        ));
+      }
+      else if ($configure_link['access']) {
         $extra['links']['configure'] = array(
           '#type' => 'link',
           '#title' => t('Configure'),
@@ -928,6 +935,8 @@ function system_modules($form, $form_state = array()) {
       ),
       // Ensure that the "Core" package fieldset comes first.
       '#weight' => $package == 'Core' ? -10 : NULL,
+      // Hide this package unless we're running a test.
+      '#access' => !($package == 'Only For Testing' && !drupal_valid_test_ua()),
     );
   }
 
@@ -1812,7 +1821,7 @@ function system_file_system_settings() {
     '#title' => t('Private file system path'),
     '#default_value' => variable_get('file_private_path', ''),
     '#maxlength' => 255,
-    '#description' => t('An existing local file system path for storing private files. It should be writable by Drupal and not accessible over the web. See the online handbook for <a href="@handbook">more information about securing private files</a>.', array('@handbook' => 'http://drupal.org/documentation/modules/file')),
+    '#description' => t('An existing local file system path for storing private files. It should be writable by Drupal and not accessible over the web. See the online handbook for <a href="@handbook">more information about securing private files</a>.', array('@handbook' => 'https://www.drupal.org/docs/7/core/modules/file/overview')),
     '#after_build' => array('system_check_directory'),
   );
 
@@ -2300,7 +2309,7 @@ function system_clean_url_settings($form, &$form_state) {
     $form_state['redirect'] = url('admin/config/search/clean-urls');
     $form['clean_url_description'] = array(
       '#type' => 'markup',
-      '#markup' => '<p>' . t('Use URLs like <code>example.com/user</code> instead of <code>example.com/?q=user</code>.'),
+      '#markup' => '<p>' . t('Use URLs like <code>example.com/user</code> instead of <code>example.com/?q=user</code>.') . '</p>',
     );
     // Explain why the user is seeing this page and what to expect after
     // clicking the 'Run the clean URL test' button.
@@ -2357,6 +2366,10 @@ function system_status($check = FALSE) {
  * Menu callback: run cron manually.
  */
 function system_run_cron() {
+  if (!isset($_GET['token']) || !drupal_valid_token($_GET['token'], 'run-cron')) {
+    return MENU_ACCESS_DENIED;
+  }
+
   // Run cron manually
   if (drupal_cron_run()) {
     drupal_set_message(t('Cron ran successfully.'));
@@ -2372,7 +2385,8 @@ function system_run_cron() {
  * Menu callback: return information about PHP.
  */
 function system_php() {
-  phpinfo();
+  $phpinfo_flags = variable_get('sa_core_2023_004_phpinfo_flags', ~(INFO_VARIABLES | INFO_ENVIRONMENT));
+  phpinfo($phpinfo_flags);
   drupal_exit();
 }
 
@@ -2385,6 +2399,7 @@ function system_batch_page() {
 
   if ($output === FALSE) {
     drupal_access_denied();
+    drupal_exit();
   }
   elseif (isset($output)) {
     // Force a page without blocks or messages to
@@ -2565,9 +2580,21 @@ function theme_system_admin_index($variables) {
 /**
  * Returns HTML for the status report.
  *
+ * This theme function is dependent on install.inc being loaded, because
+ * that's where the constants are defined.
+ *
  * @param $variables
  *   An associative array containing:
- *   - requirements: An array of requirements.
+ *   - requirements: An array of requirements/status items. Each requirement
+ *     is an associative array containing the following elements:
+ *     - title: The name of the requirement.
+ *     - value: (optional) The current value (version, time, level, etc).
+ *     - description: (optional) The description of the requirement.
+ *     - severity: (optional) The requirement's result/severity level, one of:
+ *       - REQUIREMENT_INFO: Status information.
+ *       - REQUIREMENT_OK: The requirement is satisfied.
+ *       - REQUIREMENT_WARNING: The requirement failed with a warning.
+ *       - REQUIREMENT_ERROR: The requirement failed with an error.
  *
  * @ingroup themeable
  */

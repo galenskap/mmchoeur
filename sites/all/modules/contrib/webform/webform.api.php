@@ -238,7 +238,7 @@ function hook_webform_submission_actions($node, $submission) {
  * presented when the webform is displayed to that user. To allow multiple
  * drafts, implement this alter function to set the $sid to NULL, or use your
  * application's business logic to determine whether a new draft or which of
- * he pre-existing drafts should be presented.
+ * the pre-existing drafts should be presented.
  *
  * @param int $sid
  *   The id of the most recent submission to be presented for editing. Change
@@ -446,6 +446,7 @@ function hook_webform_csv_data_alter(&$data, $component, $submission) {
  *     - conditional
  *     - spam_analysis
  *     - group
+ *     - private
  *
  *   Note that most of these features do not indicate the default state, but
  *   determine if the component can have this property at all. Setting
@@ -514,6 +515,11 @@ function hook_webform_component_info() {
       // This component may be toggled as required or not. Defaults to TRUE.
       'required' => TRUE,
 
+      // Store data in database. Defaults to TRUE. When FALSE, submission data
+      // will never be saved. This is for components like fieldset, markup, and
+      // pagebreak which do not collect data.
+      'stores_data' => TRUE,
+
       // This component supports a title attribute. Defaults to TRUE.
       'title' => FALSE,
 
@@ -542,6 +548,12 @@ function hook_webform_component_info() {
       // If this component reflects a time range and should use labels such as
       // "Before" and "After" when exposed as filters in Views module.
       'views_range' => FALSE,
+
+      // Set this to FALSE if this component cannot be used as a private
+      // component. If this is not FALSE, in your implementation of
+      // _webform_defaults_COMPONENT(), set ['extra']['private'] property to
+      // TRUE or FALSE.
+      'private' => FALSE,
     ),
 
     // Specify the conditional behaviour of this component.
@@ -759,7 +771,8 @@ function _webform_attachments_component($component, $value) {
  * Alter default settings for a newly created webform node.
  *
  * @param array $defaults
- *   Default settings for a newly created webform node as defined by webform_node_defaults().
+ *   Default settings for a newly created webform node as defined by
+ *   webform_node_defaults().
  *
  * @see webform_node_defaults()
  */
@@ -774,12 +787,28 @@ function hook_webform_node_defaults_alter(array &$defaults) {
  *   Keys and titles for default submission information.
  *
  * @see hook_webform_results_download_submission_information_data()
+ * @see hook_webform_results_download_submission_information_info_alter()
  */
 function hook_webform_results_download_submission_information_info() {
   return array(
     'field_key_1' => t('Field Title 1'),
     'field_key_2' => t('Field Title 2'),
   );
+}
+
+/**
+ * Alter fields in submission data downloads.
+ *
+ * @param array $submission_information
+ *   Keys and titles for default submission information.
+ *
+ * @see hook_webform_results_download_submission_information_info()
+ */
+function hook_webform_results_download_submission_information_info_alter(array &$submission_information) {
+  // Unset a property to remove it from submission data downloads.
+  if (isset($submission_information['webform_ip_address'])) {
+    unset($submission_information['webform_ip_address']);
+  }
 }
 
 /**
@@ -810,6 +839,26 @@ function hook_webform_results_download_submission_information_data($token, $subm
     case 'field_key_2':
       return 'Field Value 2';
   }
+}
+
+/**
+ * Alter the query that will produce the list of submission IDs to be
+ * downloaded.
+ *
+ * @param object $query
+ *   The query object that is being built up to provide the list of submission
+ *   IDs.
+ *
+ * @see webform_download_sids_query()
+ */
+function hook_webform_download_sids_query_alter(&$query) {
+  global $user;
+
+  // Check if component value matches a node ID and author of that node.
+  $query->join('webform_submitted_data', 'wsd', 'ws.sid = wsd.sid');
+  $query->condition('wsd.cid', 2);
+  $query->join('node', 'n', 'wsd.data = n.nid');
+  $query->condition('n.uid', $user->uid);
 }
 
 /**
@@ -868,9 +917,9 @@ function _webform_defaults_component() {
  *   The form state array.
  *
  * @return array
- *   An array of form items to be displayed on the edit component page
+ *   Return $form with whatever changes are desired.
  */
-function _webform_edit_component(array $component, array &$form, array &$form_state) {
+function _webform_edit_component(array $component, array $form, array $form_state) {
   // Disabling the description if not wanted.
   $form['description']['#access'] = FALSE;
 
@@ -932,7 +981,7 @@ function _webform_render_component($component, $value = NULL, $filter = TRUE, $s
 }
 
 /**
- * Allow modules to modify a webform component that is going to be rendered in a form.
+ * Allow modules to modify a webform component that will be rendered in a form.
  *
  * @param array $element
  *   The display element as returned by _webform_render_component().
@@ -1408,6 +1457,110 @@ function hook_webform_exporters() {
 function hook_webform_exporters_alter(array &$exporters) {
   $exporters['excel']['handler'] = 'customized_excel_exporter';
   $exporters['excel']['file'] = drupal_get_path('module', 'yourmodule') . '/includes/customized_excel_exporter.inc';
+}
+
+/**
+ * Declare conditional types and their operators.
+ *
+ * Each conditional type defined here may then be referenced in
+ * hook_webform_component_info(). For each type this hook also declares a set of
+ * operators that may be applied to a component of this conditional type in
+ * conditionals.
+ *
+ * @return array
+ *   A 2-dimensional array of operator configurations. The configurations are
+ *   keyed first by their conditional type then by operator key. Each operator
+ *   declaration is an array with the following keys:
+ *   - label: Translated label for this operator that is shown in the UI.
+ *   - comparison callback: A callback for server-side evaluation.
+ *   - js comparison callback: A JavaScript callback for client-side evaluation.
+ *     The callback will be looked for in the Drupal.webform object.
+ *   - form callback (optional): A form callback that allows configuring
+ *     additional parameters for this operator. Default:
+ *     'webform_conditional_operator_text'.
+ *
+ * @see hook_webform_component_info()
+ * @see callback_webform_conditional_comparision_operator()
+ * @see callback_webform_conditional_rule_value_form()
+ */
+function hook_webform_conditional_operator_info() {
+  $operators = array();
+  $operators['string']['not_equal'] = array(
+    'label' => t('is not'),
+    'comparison callback' => 'webform_conditional_operator_string_not_equal',
+    'js comparison callback' => 'conditionalOperatorStringNotEqual',
+  );
+  return $operators;
+}
+
+/**
+ * Alter the list of operators and conditional types.
+ *
+ * @param array $operators
+ *   A data structure as described in hook_webform_conditional_operator_info().
+ *
+ * @see hook_webform_conditional_operator_info()
+ */
+function hook_webform_conditional_operators_alter(array &$operators) {
+  $operators['string']['not_equal']['label'] = t('not equal');
+}
+
+/**
+ * Evaluate the operator for a given set of values.
+ *
+ * This function will be called two times with potentially different kinds of
+ * values: Once in _webform_client_form_validate() before any of the validate
+ * handlers or the _webform_submit_COMPONENT() callback is called, and once in
+ * webform_client_form_pages() after those handlers have been called.
+ *
+ * @param array $input_values
+ *   The values received from the browser.
+ * @param mixed $rule_value
+ *   The value as configured in the form callback.
+ * @param array $component
+ *   The component for which we are evaluating the operator.
+ *
+ * @return bool
+ *   The operation result.
+ */
+function callback_webfom_conditional_comparison_operator(array $input_values, $rule_value, array $component) {
+  foreach ($input_values as $value) {
+    if (strcasecmp($value, $rule_value)) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Define a form element that configures your operator.
+ *
+ * @param object $node
+ *   The node for which the conditionals are being configured.
+ *
+ * @return string|string[]
+ *   Either a single rendered form element or a rendered form element per
+ *   component (keyed by cid). Make sure that none of the rendered strings
+ *   contains any HTML IDs as the form element will be rendered multiple times.
+ *   The JavaScript will take care of adding the appropriate name attributes.
+ *
+ * @see _webform_conditional_expand_value_forms()
+ */
+function callback_webform_conditional_rule_value_form($node) {
+  $forms = [];
+  foreach ($node->webform['components'] as $cid => $component) {
+    if (webform_component_property($component['type'], 'conditional_type') == 'newsletter') {
+      $element = [
+        '#type' => 'select',
+        '#options' => [
+          'yes' => t('Opt-in'),
+          'no' => t('No opt-in'),
+        ],
+      ];
+      $forms[$cid] = drupal_render($element);
+    }
+  }
+  return $forms;
 }
 
 /**

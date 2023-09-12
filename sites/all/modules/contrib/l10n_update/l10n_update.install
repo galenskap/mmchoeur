@@ -165,6 +165,7 @@ function l10n_update_install() {
   foreach ($directories as $directory) {
     if (file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
       variable_set('l10n_update_download_store', $directory);
+      l10n_update_ensure_htaccess($directory);
       return;
     }
   }
@@ -255,6 +256,21 @@ function l10n_update_requirements($phase) {
         );
       }
     }
+
+    // Test the contents of the .htaccess file in the translations directory.
+    l10n_update_ensure_htaccess();
+    $htaccess_file = 'translations://.htaccess';
+    $directory = variable_get('l10n_update_download_store', L10N_UPDATE_DEFAULT_TRANSLATION_PATH);
+    // Check for the string which was added to the recommended .htaccess file
+    // in the latest security update.
+    if (!file_exists($htaccess_file) || !($contents = @file_get_contents($htaccess_file)) || strpos($contents, 'Drupal_Security_Do_Not_Remove_See_SA_2013_003') === FALSE) {
+      $requirements['l10n_update_htaccess'] = array(
+        'title' => t('Translations directory'),
+        'value' => t('Not fully protected'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => t('See <a href="@url">@url</a> for information about the recommended .htaccess file which should be added to the %directory directory to help protect against arbitrary code execution.', array('@url' => 'http://drupal.org/SA-CORE-2013-003', '%directory' => $directory)),
+      );
+    }
   }
   if ($phase == 'update') {
     // Make sure the 'translations' stream wrapper class gets registered.
@@ -281,12 +297,12 @@ function l10n_update_requirements($phase) {
  *   if the import behaviour setting (admin/config/regional/language/update)
  *   allows that.
  *
+ * @param array $report
+ *   Array containing import results.
  * @param int $start
  *   The number of start.
  * @param int $length
  *   The length number.
- * @param array $report
- *   Array containing import results.
  *
  * @return bool
  *   Returns true conversion
@@ -294,7 +310,7 @@ function l10n_update_requirements($phase) {
  *   - message: Translated message
  *   - status: Message status. See drush_log() for supported values.
  */
-function l10n_update_d8_plural_conversion($start = 0, $length = 0, array &$report) {
+function l10n_update_d8_plural_conversion(array &$report, $start = 0, $length = 0) {
   module_load_include('inc', 'l10n_update', 'l10n_update.translation');
   require_once DRUPAL_ROOT . '/includes/locale.inc';
   $processed = array();
@@ -355,13 +371,12 @@ function l10n_update_d8_plural_conversion($start = 0, $length = 0, array &$repor
  * @param int $length
  *   Maximum number of records to load.
  *
- * @return array|bool
+ * @return array
  *   An array of data from source and translation strings of which the source
- *   string contains a Drupal 8 style plural delimiter. Returns false if not
- *   found.
+ *   string contains a Drupal 8 style plural delimiter.
  */
 function l10n_update_get_d8_plural_strings($start = 0, $length = 0) {
-  $translation_strings = FALSE;
+  $translation_strings = array();
 
   $query = db_select('locales_source', 'ls');
   $query->fields('ls', array(
@@ -580,7 +595,7 @@ function l10n_update_update_7207(&$sandbox) {
     return NULL;
   }
 
-  $finished = l10n_update_d8_plural_conversion($sandbox['progress'], $batch_size, $sandbox['report']);
+  $finished = l10n_update_d8_plural_conversion($sandbox['report'], $sandbox['progress'], $batch_size);
   $sandbox['progress'] += $batch_size;
 
   // Whether the batch is finished is determined by the result of
@@ -594,9 +609,11 @@ function l10n_update_update_7207(&$sandbox) {
   }
 
   if ($sandbox['#finished'] == 1) {
-    l10n_update_finish_d8_plural_strings($sandbox['report']['results']);
+    if (!empty($sandbox['report']['results'])) {
+      l10n_update_finish_d8_plural_strings($sandbox['report']['results']);
+    }
 
-    if ($sandbox['report']['writer']['skips']) {
+    if (!empty($sandbox['report']['writer']['skips'])) {
       $message = t('Some problems were reported during plural string migration. See <a href="/admin/reports/dblog">Recent log messages</a> for details.');
     }
   }
@@ -625,4 +642,12 @@ function l10n_update_update_7209() {
   if ($update_url == 'http://ftp.drupal.org/files/translations/%core/%project/%project-%release.%language.po') {
     variable_set('l10n_update_default_update_url', L10N_UPDATE_DEFAULT_SERVER_PATTERN);
   }
+}
+
+/**
+ * Add a .htaccess file to the translations directory.
+ */
+function l10n_update_update_7210() {
+  module_load_include('module', 'l10n_update');
+  l10n_update_ensure_htaccess();
 }

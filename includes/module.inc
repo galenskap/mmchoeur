@@ -142,9 +142,10 @@ function system_list($type) {
     foreach ($bootstrap_list as $module) {
       drupal_get_filename('module', $module->name, $module->filename);
     }
-    // We only return the module names here since module_list() doesn't need
-    // the filename itself.
-    $lists['bootstrap'] = array_keys($bootstrap_list);
+    // Only return module names here since module_list() doesn't need the
+    // filename itself. Don't use drupal_map_assoc() as that requires common.inc.
+    $list = array_keys($bootstrap_list);
+    $lists['bootstrap'] = (!empty($list) ? array_combine($list, $list) : array());
   }
   // Otherwise build the list for enabled modules and themes.
   elseif (!isset($lists['module_enabled'])) {
@@ -404,7 +405,11 @@ function module_enable($module_list, $enable_dependencies = TRUE) {
     // Create an associative array with weights as values.
     $module_list = array_flip(array_values($module_list));
 
-    while (list($module) = each($module_list)) {
+    // The array is iterated over manually (instead of using a foreach) because
+    // modules may be added to the list within the loop and we need to process
+    // them.
+    while ($module = key($module_list)) {
+      next($module_list);
       if (!isset($module_data[$module])) {
         // This module is not found in the filesystem, abort.
         return FALSE;
@@ -540,7 +545,11 @@ function module_disable($module_list, $disable_dependents = TRUE) {
     $module_list = array_flip(array_values($module_list));
 
     $profile = drupal_get_profile();
-    while (list($module) = each($module_list)) {
+    // The array is iterated over manually (instead of using a foreach) because
+    // modules may be added to the list within the loop and we need to process
+    // them.
+    while ($module = key($module_list)) {
+      next($module_list);
       if (!isset($module_data[$module]) || !$module_data[$module]->status) {
         // This module doesn't exist or is already disabled, skip it.
         unset($module_list[$module]);

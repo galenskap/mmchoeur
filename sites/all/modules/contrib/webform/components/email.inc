@@ -61,7 +61,7 @@ function _webform_edit_email($component) {
     '#size' => 60,
     '#maxlength' => 127,
     '#weight' => 0,
-    '#attributes' => ($component['value'] == '[current-user:mail]' && count(form_get_errors()) == 0) ? array('disabled' => TRUE) : array(),
+    '#attributes' => ($component['value'] == '[current-user:mail]' && !form_get_errors()) ? array('disabled' => TRUE) : array(),
     '#id' => 'email-value',
   );
   $form['user_email'] = array(
@@ -152,10 +152,10 @@ function _webform_render_email($component, $value = NULL, $filter = TRUE, $submi
     '#required' => $component['required'],
     '#weight' => $component['weight'],
     '#description' => $filter ? webform_filter_descriptions($component['extra']['description'], $node) : $component['extra']['description'],
-    '#attributes' => $component['extra']['attributes'],
+    '#attributes' => $component['extra']['attributes'] ?: array(),
     '#element_validate'  => array('_webform_validate_email'),
     '#theme_wrappers' => array('webform_element'),
-    '#translatable' => array('title', 'description'),
+    '#translatable' => array('title', 'description', 'placeholder'),
   );
 
   if ($component['required']) {
@@ -245,9 +245,9 @@ function theme_webform_email($variables) {
  * Validates the entered values from email components on the client-side form.
  * Calls a form_set_error if the e-mail is not valid.
  *
- * @param $form_element
+ * @param array $form_element
  *   The e-mail form element.
- * @param $form_state
+ * @param array $form_state
  *   The full form state for the webform.
  */
 function _webform_validate_email($form_element, &$form_state) {
@@ -275,7 +275,7 @@ function _webform_display_email($component, $value, $format = 'html', $submissio
     '#theme_wrappers' => $format == 'html' ? array('webform_element') : array('webform_element_text'),
     '#format' => $format,
     '#value' => isset($value[0]) ? $value[0] : '',
-    '#translatable' => array('title'),
+    '#translatable' => array('title', 'placeholder'),
   );
 }
 
