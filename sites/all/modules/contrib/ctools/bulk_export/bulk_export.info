@@ -1,13 +1,11 @@
 name = Bulk Export
 description = Performs bulk exporting of data objects known about by Chaos tools.
 core = 7.x
-dependencies[] = ctools
+dependencies[] = ctools:ctools
 package = Chaos tool suite
-version = CTOOLS_MODULE_VERSION
 
-; Information added by Drupal.org packaging script on 2018-02-24
-version = "7.x-1.14"
+; Information added by Drupal.org packaging script on 2023-01-31
+version = "7.x-1.21"
 core = "7.x"
 project = "ctools"
-datestamp = "1519455788"
-
+datestamp = "1675152418"

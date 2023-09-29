@@ -61,10 +61,12 @@ class views_bulk_operations_handler_field_operations extends views_handler_field
       'contains' => array(
         'display_type' => array('default' => 0),
         'enable_select_all_pages' => array('default' => TRUE),
+        'enable_select_this_page' => array('default' => TRUE),
         'row_clickable' => array('default' => TRUE),
         'force_single' => array('default' => FALSE),
         'entity_load_capacity' => array('default' => 10),
         'skip_batching' => array('default' => 0),
+        'save_view_object_when_batching' => array('default' => 0),
       ),
     );
     $options['vbo_operations'] = array(
@@ -129,6 +131,12 @@ class views_bulk_operations_handler_field_operations extends views_handler_field
       '#default_value' => $this->options['vbo_settings']['enable_select_all_pages'],
       '#description' => t('Check this box to enable the ability to select all items on all pages.'),
     );
+    $form['vbo_settings']['enable_select_this_page'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Enable "Select all items on this page"'),
+      '#default_value' => $this->options['vbo_settings']['enable_select_this_page'],
+      '#description' => t('Check this box to enable the ability to select all items on current page.'),
+    );
     $form['vbo_settings']['row_clickable'] = array(
       '#type' => 'checkbox',
       '#title' => t('Make the whole row clickable'),
@@ -152,6 +160,12 @@ class views_bulk_operations_handler_field_operations extends views_handler_field
       '#title' => t('Skip batching'),
       '#default_value' => $this->options['vbo_settings']['skip_batching'],
       '#description' => '<b>' . t('Warning:') . '</b> ' . t('This will cause timeouts for larger amounts of selected items.'),
+    );
+    $form['vbo_settings']['save_view_object_when_batching'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Save the whole view object when batching'),
+      '#default_value' => $this->options['vbo_settings']['save_view_object_when_batching'],
+      '#description' => '<b>' . t('Warning:') . '</b> ' . t('Use this option when your view contains query conditions which are not defined as arguments.'),
     );
 
     // Display operations and their settings.
